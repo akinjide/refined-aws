@@ -1,0 +1,30 @@
+/* Overrides */
+
+#consoleNavHeader > #awsgnav > #shortcutMenuContent {
+	z-index: 2 !important;
+	top: 80px !important;
+}
+
+#awsgnav .nav-menu-content { z-index: 9999 !important; }
+
+#awsgnav > #shortcutMenuContent > #nav-shortcuts-section {
+  height: 600px;
+  overflow-y: scroll;
+}
+
+#consoleNavHeader > #awsgnav > #nav-menubar #nav-shortcutBar {
+  width: 100% !important;
+  background: #24292E;
+  overflow-x: auto !important;
+  margin: 0 0 8px !important;
+}
+
+#consoleNavHeader > #awsgnav > #nav-menubar #nav-shortcutBar::-webkit-scrollbar {
+  display: none;
+}
+
+#nav-menu-right .nav-elt.nav-menu {
+  position: relative !important;
+  left: 0 !important;
+  outline: none;
+}

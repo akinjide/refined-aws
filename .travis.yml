@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - node
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: npm run deploy
+  on:
+    branch: master
+    tags: true
+
+env:
+  EXTENSION_ID=ockddcaogdonfmcfhdblbflchnjgiilc

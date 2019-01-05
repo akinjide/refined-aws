@@ -1,0 +1,36 @@
+{
+  "name": "Refined AWS Console",
+  "version": "1.0.0",
+  "description": "Simplifies the Amazon Web Services Console interface.",
+  "homepage_url": "https://www.github.com/akinjide/redefined-aws",
+  "manifest_version": 2,
+  "minimum_chrome_version": "62",
+  "permissions": [],
+  "icons": {
+    "16": "images/icon16.png",
+    "32": "images/icon32.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "main.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "https://console.aws.amazon.com/*",
+        "https://*.console.aws.amazon.com/*"
+      ],
+      "css": [
+        "style/content.css"
+      ],
+      "js": [
+        "jquery.slim.min.js",
+        "content.js"
+      ]
+    }
+  ]
+}
