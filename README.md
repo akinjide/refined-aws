@@ -1,4 +1,4 @@
-# Refined AWS Console
+# <img src="extension/images/icon128.png" width="45" align="left"> Refined AWS Console
 
 Simplifies the Amazon Web Services Console interface.
 
