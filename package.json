@@ -2,6 +2,7 @@
   "name": "refined-aws",
   "version": "1.0.0",
   "license": "MIT",
+  "author": "Akinjide Bankole <r@akinjide.me>",
   "scripts": {
     "lint": "xo && stylelint extension/*.css",
     "test": "npm run lint && ava",
@@ -62,6 +63,7 @@
   },
   "engines": {
     "node": "8.11.3",
-    "npm": "5.6.0"
+    "npm": "5.6.0",
+    "yarn": "1.6.0"
   }
 }
