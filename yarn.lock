@@ -1674,8 +1674,8 @@ domutils@^1.5.1:
     domelementtype "1"
 
 dot-json@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/dot-json/-/dot-json-1.0.4.tgz#b5c5818eb526a7917ac02df017fe9fba37b11195"
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/dot-json/-/dot-json-1.1.0.tgz#36dc7d40c00afaef2823b715b94325ba39f1bd89"
   dependencies:
     docopt "~0.6.2"
     underscore-keypath "~0.0.22"
