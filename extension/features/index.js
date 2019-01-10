@@ -1,4 +1,4 @@
-import { default as pB } from './pin-button';
+import {default as pB} from './pin-button';
 
 export const features = {
   /* NAVIGATION BAR */
@@ -20,5 +20,5 @@ export const runOnInitFeatures = keys
   .filter(({runOnInit}) => runOnInit && typeof runOnInit === 'boolean');
 
 export const defaultFeatures = values
-  .filter(({ enabledByDefault }) => enabledByDefault && typeof enabledByDefault === 'boolean')
-  .map(({ enabledByDefault, id }) => ({ [id]: enabledByDefault }));
+  .filter(({enabledByDefault}) => enabledByDefault && typeof enabledByDefault === 'boolean')
+  .map(({enabledByDefault, id}) => ({[id]: enabledByDefault}));
