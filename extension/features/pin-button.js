@@ -1,4 +1,4 @@
-export default function () {
+export default () => {
   const el = $('#nav-shortcutMenu');
   const parent = $(el).parent();
 
