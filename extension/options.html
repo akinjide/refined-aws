@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Refined AWS Console</title>
+    <style>
+      body {
+        font-family: SFUIText-Regular, Segoe UI, Helvetica Neue, Helvetica, Arial, sans-serif;
+        margin: 0 14px 17px;
+      }
+
+      h2 {
+        border-bottom: 1px solid rgba(0, 0, 0, .10);
+        height: 50px;
+        line-height: 50px;
+        color: #1D2129;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+      }
+
+      input[type="checkbox"] {
+        opacity: 1;
+        position: absolute;
+        height: 16px;
+        margin: 0;
+        width: 16px;
+        font-weight: normal;
+        font-size: 12px;
+      }
+
+      input[type="checkbox"],
+      input[type="checkbox"]:hover {
+        box-shadow: none !important;
+        background: #FFFFFF !important;
+        cursor: pointer;
+      }
+
+      input[type="checkbox"]:checked {
+        border-color: transparent;
+      }
+
+      input[type="checkbox"]:checked::before {
+        background: #0084ff;
+      }
+
+      .header {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: rgba(0, 0, 0, 1);
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0 auto;
+        max-width: 50%;
+        text-align: center;
+        vertical-align: middle;"
+      }
+
+      .features {
+        align-items: center;
+        border-bottom: 1px solid rgba(0, 0, 0, .10);
+        display: flex;
+        font-size: 15px;
+        margin: 0 24px;
+        padding: 20px 0;
+      }
+
+      .features .features-container {
+        display: inline-block;
+        line-height: 20px;
+        vertical-align: middle;
+        width: 334px;
+      }
+
+      .features .feature-header {
+        color: rgba(0, 0, 0, .40);
+        display: inline-block;
+        line-height: 1.28;
+        vertical-align: middle;
+        width: 162px;
+      }
+
+      .features .feature-body {
+        display: inline-block;
+        line-height: 20px;
+        vertical-align: middle;
+        width: 334px;
+        padding: 8px 0;
+      }
+
+      .features .feature-body label {
+        align-items: center;
+        color: rgba(0, 0, 0, 1);
+        cursor: pointer;
+        display: flex;
+        font-size: 15px;
+        font-weight: normal;
+        vertical-align: middle;
+      }
+
+      .features .feature-body .feature-label {
+        min-height: 16px;
+        margin-right: 8px;
+        min-width: 16px;
+        align-items: center;
+        color: rgba(0, 0, 0, 1);
+        cursor: pointer;
+        display: flex;
+        font-size: 15px;
+        font-weight: normal;
+        margin-left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <div>
+          <h2>
+            <div class="header">
+              Features
+            </div>
+          </h2>
+
+          <div class="features">
+            <div class="feature-header">
+              Navigation
+            </div>
+
+            <div class="features-container">
+              <div class="feature-body">
+                <label>
+                  <input type="checkbox">
+                  <div class="feature-label">
+                    Show "Keyboard Shortcuts"
+                  </div>
+                </label>
+              </div>
+              <div class="feature-body">
+                <label>
+                  <input type="checkbox">
+                  <div class="feature-label">
+                    Show "Sign Out" button in navigation bar
+                  </div>
+                </label>
+              </div>
+              <div class="feature-body">
+                <label>
+                  <input type="checkbox">
+                  <div class="feature-label">
+                    Hide "Resource Groups" selection
+                  </div>
+                </label>
+              </div>
+              <div class="feature-body">
+                <label>
+                  <input type="checkbox">
+                  <div class="feature-label">
+                    Hide "Region" selection
+                  </div>
+                </label>
+              </div>
+              <div class="feature-body">
+                <label>
+                  <input type="checkbox">
+                  <div class="feature-label">
+                    Hide "Support" selection
+                  </div>
+                </label>
+              </div>
+              <div class="feature-body">
+                <label>
+                  <input type="checkbox">
+                  <div class="feature-label">
+                    Move "Pin" button
+                  </div>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="features">
+            <div class="feature-header">
+              General
+            </div>
+
+            <div class="features-container">
+              <div class="feature-body">
+                <label>
+                  <input type="checkbox">
+                  <div class="feature-label">
+                    Show "Keyboard Shortcuts"
+                  </div>
+                </label>
+              </div>
+              <div class="feature-body">
+                <label>
+                  <input type="checkbox">
+                  <div class="feature-label">
+                    Hide console "Footer"
+                  </div>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>
