@@ -1,3 +1,5 @@
+import nS from './common/nav-separator';
+
 export default () => {
   const el = $('#aws-console-logout');
   const parent = $(el).parent();
@@ -6,5 +8,6 @@ export default () => {
   $(el).addClass('ra-ssob');
 
   $(el).appendTo($('#nav-menu-right'));
+  $(nS()).insertBefore(el);
   $(parent).hide();
 };
