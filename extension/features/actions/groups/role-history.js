@@ -1,25 +1,35 @@
+// TODO: bind form submit action.
 export default (ctx, shortcutsContext, log) => {
-  const el = $('#usernameMenuContent').find('#awsc-username-menu-recent-roles');
+  const el = $('#usernameMenuContent');
   let shortcuts = [];
 
-  shortcuts.push({
-    keys: ['s', 'r'],
-    name: 'Root',
-    description: 'Switch to %REPLACE%',
-    fn: () => {}
-  });
+  const rootAccount = $(el)
+    .find('#awsc-active-role-section')
+    .find('#awsc-exit-role-form');
 
-  $(el).find('li').each((index, list) => {
-    const name = $(list).find('input[name="displayName"]').val();
-    const form = $(list).children('form');
-
+  if (rootAccount.length) {
     shortcuts.push({
-      keys: ['s', `${index}`],
-      name,
+      keys: ['s', 'r'],
+      name: 'Root',
       description: 'Switch to %REPLACE%',
-      fn: $(form),
+      fn: () => {}
     });
-  });
+  }
+
+  $(el)
+    .find('#awsc-username-menu-recent-roles')
+    .find('li')
+    .each((index, list) => {
+      const name = $(list).find('input[name="displayName"]').val();
+      const form = $(list).children('form');
+
+      shortcuts.push({
+        keys: ['s', `${index}`],
+        name,
+        description: 'Switch to %REPLACE%',
+        fn: $(form),
+      });
+    });
 
   return {
     name: 'Role History',
