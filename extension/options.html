@@ -74,7 +74,7 @@
         width: 334px;
       }
 
-      .features .feature-header {
+      .features .features-header {
         color: rgba(0, 0, 0, .40);
         display: inline-block;
         line-height: 1.28;
@@ -98,6 +98,7 @@
         font-size: 15px;
         font-weight: normal;
         vertical-align: middle;
+        opacity: 0.8;
       }
 
       .features .feature-body .feature-label {
@@ -112,6 +113,14 @@
         font-weight: normal;
         margin-left: 30px;
       }
+
+      .locked-feature {
+        opacity: 0.5;
+      }
+
+      .locked-feature input[type="checkbox"]:disabled::before {
+        background: #DDDDDD;
+      }
     </style>
   </head>
   <body>
@@ -124,94 +133,13 @@
             </div>
           </h2>
 
-          <div class="features">
-            <div class="feature-header">
-              Navigation
-            </div>
-
-            <div class="features-container">
-              <div class="feature-body">
-                <label>
-                  <input type="checkbox">
-                  <div class="feature-label">
-                    Show "Keyboard Shortcuts"
-                  </div>
-                </label>
-              </div>
-              <div class="feature-body">
-                <label>
-                  <input type="checkbox">
-                  <div class="feature-label">
-                    Show "Sign Out" button in navigation bar
-                  </div>
-                </label>
-              </div>
-              <div class="feature-body">
-                <label>
-                  <input type="checkbox">
-                  <div class="feature-label">
-                    Hide "Resource Groups" selection
-                  </div>
-                </label>
-              </div>
-              <div class="feature-body">
-                <label>
-                  <input type="checkbox">
-                  <div class="feature-label">
-                    Hide "Region" selection
-                  </div>
-                </label>
-              </div>
-              <div class="feature-body">
-                <label>
-                  <input type="checkbox">
-                  <div class="feature-label">
-                    Hide "Support" selection
-                  </div>
-                </label>
-              </div>
-              <div class="feature-body">
-                <label>
-                  <input type="checkbox">
-                  <div class="feature-label">
-                    Move "Pin" button
-                  </div>
-                </label>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="features">
-            <div class="feature-header">
-              General
-            </div>
-
-            <div class="features-container">
-              <div class="feature-body">
-                <label>
-                  <input type="checkbox">
-                  <div class="feature-label">
-                    Show "Keyboard Shortcuts"
-                  </div>
-                </label>
-              </div>
-              <div class="feature-body">
-                <label>
-                  <input type="checkbox">
-                  <div class="feature-label">
-                    Hide console "Footer"
-                  </div>
-                </label>
-              </div>
-            </div>
-
-          </div>
-
+          <div id="features-all"></div>
         </div>
       </div>
     </div>
 
+    <script src="browser-polyfill.min.js"></script>
+    <script src="jquery.slim.min.js"></script>
     <script src="options.js"></script>
   </body>
 </html>
