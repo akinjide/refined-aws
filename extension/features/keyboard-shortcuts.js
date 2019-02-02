@@ -3,9 +3,6 @@ import shortcutsContext from '../library/shortcuts';
 
 export default (log) => {
   const keyBoardShortcuts = Actions(window, shortcutsContext, log);
-
-  log('🛂', 'Registry', shortcutsContext.registry);
-
   const element = $(`
     <div id="refined-aws-keyboard">
       <div class="refined-aws-container">
@@ -27,25 +24,9 @@ export default (log) => {
   $(element).hide('slow');
   $('.overlay').click(() => $(element).hide('slow'));
 
-  $(document).keydown((event) => {
-    const { key: keyName } = event;
 
-    switch (keyName) {
-      case '?':
-        $(element).show('slow');
-        break;
-
-      case 'Escape':
-        const el = $('#refined-aws-keyboard');
-        const sibling = $(el).siblings('.overlay');
-
-        $(el).hide();
-        $(sibling).hide();
-        break;
-    }
-  });
-
-  const el = $('#shortcuts-all');
+  log('🛂', 'Registry', shortcutsContext.registry);
+  shortcutsContext.exec(element, shortcutsContext);
 
   for (const { name, shortcuts } of keyBoardShortcuts) {
     const shortcutsContainer = $('<div class="shortcuts-container"></div>');
@@ -71,6 +52,6 @@ export default (log) => {
     }
 
     $(shortcutsContainer).appendTo(shortcutsElement);
-    $(shortcutsElement).appendTo(el);
+    $(shortcutsElement).appendTo($('#shortcuts-all'));
   }
 };
