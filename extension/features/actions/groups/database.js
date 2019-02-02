@@ -8,7 +8,7 @@ export default (ctx, uri, regx, shortcutsContext, log) => {
       description,
     },
     {
-      keys: ['g', 'h'],
+      keys: ['g', 'k'],
       name: 'ElastiCache',
       abbr: 'elasticache',
       description,

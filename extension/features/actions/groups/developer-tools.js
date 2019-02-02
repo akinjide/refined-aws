@@ -8,7 +8,7 @@ export default (ctx, uri, regx, shortcutsContext, log) => {
       description,
     },
     {
-      keys: ['g', 'k'],
+      keys: ['g', 'd'],
       name: 'CodeDeploy',
       abbr: 'codedeploy',
       description,
