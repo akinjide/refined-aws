@@ -9,39 +9,14 @@ Simplifies the Amazon Web Services Console interface.
 
 ## Keyboard Shortcuts
 
----
-| Category      | Shortcut               | Description           |
-| :------------ |:-----------------------|:----------------------|
-| General       | `?`                    |                       |
-|               | `esc`                  |                       |
-|               | `g` + `h`              |                       |
-|&nbsp;         |                        |                       |
-| Services      | `g` + `2`              |                       |
-|               | `g` + `3`              |                       |
-|               | `g` + `4`              |                       |
-|               | `g` + `5`              |                       |
-|               | `g` + `b`              |                       |
-|               | `g` + `c`              |                       |
-|               | `g` + `d`              |                       |
-|               | `g` + `e`              |                       |
-|               | `g` + `f`              |                       |
-|               | `g` + `i`              |                       |
-|               | `g` + `k`              |                       |
-|               | `g` + `l`              |                       |
-|               | `g` + `m`              |                       |
-|               | `g` + `n`              |                       |
-|               | `g` + `o`              |                       |
-|               | `g` + `p`              |                       |
-|               | `g` + `q`              |                       |
-|               | `g` + `r`              |                       |
-|               | `g` + `s`              |                       |
-|               | `g` + `t`              |                       |
-|               | `g` + `v`              |                       |
-|               | `g` + `w`              |                       |
-|               | `g` + `y`              |                       |
-|               | `g` + `z`              |                       |
-|&nbsp;         |                        |                       |
-| Role History  | `s` + `r`              |                       |
-|               | `s` + `0`              |                       |
-|               | `s` + `n`              |                       |
----
+| Category      | Shortcut               | Description                                           |
+| :------------ |:-----------------------|:------------------------------------------------------|
+| General       | `?`                    | Show Shortcuts Dialog                                 |
+|               | `esc`                  | Hide Shortcuts Dialog                                 |
+|               | `g` + `h`              | Go Home                                               |
+|&nbsp;         |                        |                                                       |
+| Services      | `g` + **numeric**      | Go to AWS service with numeric character (i.e. `2`)   |
+|               | `g` + **alphabet**     | Go to AWS service with alphabet character (i.e. `a`)  |
+|&nbsp;         |                        |                                                       |
+| Role History  | `s` + `r`              | Switch to Root role                                   |
+|               | `s` + **numeric**      | Switch with numeric character (i.e. `2`) to role      |
