@@ -1,12 +1,12 @@
-import { groupFeatures } from './features';
-import { StoreSync } from './library/store-sync';
-import { optionsSync } from './library/options-sync';
+import {groupFeatures} from './features';
+import {StoreSync} from './library/store-sync';
+import {optionsSync} from './library/options-sync';
 
 const storeSync = new StoreSync(window, 'refined:aws');
 const el = $('#features-all');
 const lockedFeature = [];
 
-for (const [category, features] of groupFeatures) {
+for (const [category, features] of groupFeatures('category')) {
   const featuresContainer = $('<div class="features-container"></div>');
   const featuresElement = $(
     `<div class="${category} features">
@@ -37,7 +37,7 @@ for (const [category, features] of groupFeatures) {
   $(featuresElement).appendTo(el);
 }
 
-if (lockedFeature.length) {
+if (lockedFeature.length > 0) {
   for (const id of lockedFeature) {
     $(`input[name='${id}']`).prop('disabled', true);
   }

@@ -99,14 +99,14 @@ export const features = {
   },
 
   /* SYSTEMS MANAGER */
-  // duplicateBreadCrumbNavigation: {
-  //   id: 'feature-duplicate-breadcrumb-navigation',
-  //   category: 'systems manager',
-  //   label: 'Show "Breadcrumb Navigation" on table bottom within Shared Resources section',
-  //   fn: dBN,
-  //   enabledByDefault: false,
-  //   runOnInit: false
-  // },
+  duplicateBreadCrumbNavigation: {
+    id: 'feature-duplicate-breadcrumb-navigation',
+    category: 'systems manager',
+    label: 'Show "Breadcrumb Navigation" on table bottom within Shared Resources section',
+    fn: dBN,
+    enabledByDefault: false,
+    runOnInit: false
+  },
 
   /* ADVANCED */
   showExtensionLogs: {
@@ -122,7 +122,7 @@ export const values = Object.values(features);
 export const keys = Object.keys(features);
 
 export const capitalizeFeaturesCategory = values
-  .map((feature) => ({
+  .map(feature => ({
     ...feature,
     category: feature.category
       .toLowerCase()
@@ -139,13 +139,13 @@ export const defaultFeatures = values
     [id]: typeof enabledByDefault === 'boolean' ? enabledByDefault : true
   }), {});
 
-export const groupFeatures = Object.entries(
+export const groupFeatures = groupBy => Object.entries(
   capitalizeFeaturesCategory
     .sort((a, b) => b - a)
-    .reduce((features, feature, index, originalFeatures, groupBy = 'category') => {
+    .reduce((features, feature) => {
       return {
         ...features,
         [feature[groupBy]]: [...(features[feature[groupBy]] || []), feature],
-      }
+      };
     }, {})
 );
