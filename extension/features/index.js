@@ -85,8 +85,8 @@ export const features = {
     category: 'general',
     label: 'Enable "Keyboard Shortcuts"',
     fn: kS,
-    enabledByDefault: true,
-    runOnInit: true
+    enabledByDefault: false,
+    runOnInit: false
   },
   useSystemFont: {
     id: 'feature-use-system-font',
@@ -104,6 +104,7 @@ export const features = {
     category: 'systems manager',
     label: 'Show "Breadcrumb Navigation" on table bottom within Shared Resources section',
     fn: dBN,
+    locked: true,
     enabledByDefault: false,
     runOnInit: false
   },

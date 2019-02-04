@@ -1,20 +1,18 @@
-import { defaultFeatures } from './features';
-import { StoreSync } from './library/store-sync';
+import {defaultFeatures} from './features';
+import {StoreSync} from './library/store-sync';
 
 const storeSync = new StoreSync(window, 'refined:aws');
 
 // Save default features option valude under chrome storage sync.
 async function main() {
   try {
-    console.log(defaultFeatures);
     const options = await storeSync.get(null);
-    await storeSync.set({ ...options, ...defaultFeatures });
+    await storeSync.set({...options, ...defaultFeatures});
     console.log('✅', 'Saved default');
   } catch (error) {
     console.error('❓', 'Error saving default');
-    // TODO: handle error, retry sync or write to log file but put under logging option.
+    // Handle error, retry sync or write to log file but put under logging option.
     console.log(error);
-
   }
 }
 

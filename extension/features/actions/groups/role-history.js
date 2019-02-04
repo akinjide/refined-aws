@@ -7,11 +7,13 @@ export default (ctx, shortcutsContext, log) => {
     .find('form#awsc-exit-role-form');
 
   if (rootAccount.length === 1) {
+    const input = $(rootAccount).find('#awsc-exit-role');
+
     shortcuts.push({
       keys: ['s', 'r'],
-      name: 'Root',
-      description: 'Switch to %REPLACE%',
-      form: rootAccount,
+      name: input.val(),
+      description: '%REPLACE% @ ROOT',
+      input,
     });
   }
 
@@ -21,13 +23,13 @@ export default (ctx, shortcutsContext, log) => {
     .each((index, li) => {
       if (!$(li).hasClass('awsc-current-role')) {
         const name = $(li).find('input[name="displayName"]').val();
-        const form = $(li).children('form');
+        const input = $(li).children('form').find(`#awsc-recent-role-switch-${index}`);
 
         shortcuts.push({
           keys: ['s', `${index}`],
           name,
           description: 'Switch to %REPLACE%',
-          form,
+          input,
         });
       }
     });
@@ -36,11 +38,10 @@ export default (ctx, shortcutsContext, log) => {
     name: 'Role History',
     description: 'Shortcuts for switching recent AWS roles.',
     shortcuts: shortcuts.map(shortcut => {
-      const {keys, name, form} = shortcut;
+      const {keys, name, input} = shortcut;
 
       shortcutsContext.inject(keys.join('+'), () => {
-        console.log(form, 'switching ' + name + keys);
-        form[0].submit();
+        $(input)[0].click();
       });
 
       log('🔡', name, keys);
