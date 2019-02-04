@@ -6,17 +6,20 @@ export default (ctx, uri, regx, shortcutsContext, log) => {
       abbr: 'ses',
       description: 'Go to %REPLACE%',
     }
-  ].map((shortcut) => {
-    const { keys, abbr } = shortcut;
+  ];
 
-    shortcutsContext.inject(keys.join('+'), (e) => {
-      ctx.location.href = uri.replace(regx, `.com/${abbr}/`);
+  shortcuts
+    .map(shortcut => {
+      const {keys, abbr} = shortcut;
+
+      shortcutsContext.inject(keys.join('+'), () => {
+        ctx.location.href = uri.replace(regx, `.com/${abbr}/`);
+      });
+
+      log('🔡', abbr, keys);
+
+      return shortcut;
     });
-
-    log('🔡', abbr, keys);
-
-    return shortcut;
-  });
 
   return {
     name: 'Customer Engagement',

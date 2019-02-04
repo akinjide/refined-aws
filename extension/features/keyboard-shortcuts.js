@@ -1,8 +1,8 @@
-import {default as Actions} from './actions';
 import shortcutsContext from '../library/shortcuts';
+import {default as actions} from './actions';
 
-export default (log) => {
-  const keyBoardShortcuts = Actions(window, shortcutsContext, log);
+export default log => {
+  const keyBoardShortcuts = actions(window, shortcutsContext, log);
   const element = $(`
     <div id="refined-aws-keyboard">
       <div class="refined-aws-container">
@@ -24,11 +24,10 @@ export default (log) => {
   $(element).hide('slow');
   $('.overlay').click(() => $(element).hide('slow'));
 
-
   log('🛂', 'Registry', shortcutsContext.registry);
   shortcutsContext.exec(element, shortcutsContext);
 
-  for (const { name, shortcuts } of keyBoardShortcuts) {
+  for (const {name, shortcuts} of keyBoardShortcuts) {
     const shortcutsContainer = $('<div class="shortcuts-container"></div>');
     const shortcutsElement = $(
       `<div class="shortcuts">

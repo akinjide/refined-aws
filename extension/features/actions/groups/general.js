@@ -18,21 +18,41 @@ export default (ctx, shortcutsContext, log) => {
       abbr: 'home',
       description: 'Go %REPLACE%',
     }
-  ]
-  .map((shortcut) => {
-    const AWS_HOME = 'https://console.aws.amazon.com/console/home';
-    const { keys, abbr } = shortcut;
+  ];
 
-    if (abbr == 'home') {
-      shortcutsContext.inject(keys.join('+'), (e) => {
-        ctx.location.href = AWS_HOME;
-      });
-    }
+  const el = $('#usernameMenuContent')
+    .find('#awsc-switch-role');
 
-    log('🔡', abbr, keys);
+  if (el.length === 1) {
+    shortcuts.push({
+      keys: ['s', 's'],
+      name: 'Switch Role',
+      abbr: 'roleswitch',
+      description: '%REPLACE%',
+    });
+  }
 
-    return shortcut;
-  });
+  shortcuts
+    .map(shortcut => {
+      const AWS_HOME = 'https://console.aws.amazon.com/console/home';
+      const {keys, abbr} = shortcut;
+
+      if (abbr === 'home') {
+        shortcutsContext.inject(keys.join('+'), () => {
+          ctx.location.href = AWS_HOME;
+        });
+      }
+
+      if (abbr === 'roleswitch') {
+        shortcutsContext.inject(keys.join('+'), () => {
+          $(el)[0].click();
+        });
+      }
+
+      log('🔡', abbr, keys);
+
+      return shortcut;
+    });
 
   return {
     name: 'General',

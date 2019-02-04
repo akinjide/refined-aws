@@ -1,5 +1,5 @@
 export default (ctx, uri, regx, shortcutsContext, log) => {
-  const description = 'Go to %REPLACE%'
+  const description = 'Go to %REPLACE%';
   const shortcuts = [
     {
       keys: ['g', 'c'],
@@ -19,19 +19,21 @@ export default (ctx, uri, regx, shortcutsContext, log) => {
       abbr: 'vpc',
       description,
     }
-  ]
-  .sort((a, b) => (a.keys[1] < b.keys[1]) ? -1 : 1)
-  .map((shortcut) => {
-    const { keys, abbr } = shortcut;
+  ];
 
-    shortcutsContext.inject(keys.join('+'), (e) => {
-      ctx.location.href = uri.replace(regx, `.com/${abbr}/`);
+  shortcuts
+    .sort((a, b) => (a.keys[1] < b.keys[1]) ? -1 : 1)
+    .map(shortcut => {
+      const {keys, abbr} = shortcut;
+
+      shortcutsContext.inject(keys.join('+'), () => {
+        ctx.location.href = uri.replace(regx, `.com/${abbr}/`);
+      });
+
+      log('🔡', abbr, keys);
+
+      return shortcut;
     });
-
-    log('🔡', abbr, keys);
-
-    return shortcut;
-  });
 
   return {
     name: 'Networking & Content Delivery',
