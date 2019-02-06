@@ -33,6 +33,27 @@ Simplifies the Amazon Web Services Console interface.
   </tr>
 </table>
 
+<table>
+  <tr>
+    <th width="50%">
+      Switch between assigned Roles<br>
+    </th>
+    <th width="50%">
+      Remove unused navigation menus<br>
+    </th>
+  </tr>
+  <tr><!-- Prevent zebra stripes --></tr>
+  <tr>
+    <td>
+      <img src="media/screenshot5.png">
+    </td>
+    <td>
+      <img src="media/screenshot3.gif">
+      <img src="media/screenshot4.gif">
+    </td>
+  </tr>
+</table>
+
 
 ## Keyboard Shortcuts
 
