@@ -1,7 +1,6 @@
 export default (ctx, shortcutsContext, log) => {
   const el = $('#usernameMenuContent');
   const shortcuts = [];
-
   const rootAccount = $(el)
     .find('#awsc-active-role-section')
     .find('form#awsc-exit-role-form');

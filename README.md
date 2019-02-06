@@ -39,7 +39,7 @@ Simplifies the Amazon Web Services Console interface.
       Switch between assigned Roles<br>
     </th>
     <th width="50%">
-      Remove unused navigation menus<br>
+      Hide unused navigation menus<br>
     </th>
   </tr>
   <tr><!-- Prevent zebra stripes --></tr>

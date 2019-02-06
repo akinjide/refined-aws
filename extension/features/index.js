@@ -85,8 +85,8 @@ export const features = {
     category: 'general',
     label: 'Enable "Keyboard Shortcuts"',
     fn: kS,
-    enabledByDefault: false,
-    runOnInit: false
+    enabledByDefault: true,
+    runOnInit: true
   },
   useSystemFont: {
     id: 'feature-use-system-font',
