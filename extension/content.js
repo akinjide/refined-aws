@@ -36,9 +36,8 @@ function onRouteChange(callback) {
 }
 
 function observeAndEnableFeatures() {
-  enableFeature(features.keyboardShortcuts);
-
   onRouteChange(() => {
+    enableFeature(features.keyboardShortcuts);
     enableFeature(features.hideAmazonConsoleLogo);
     enableFeature(features.hideSupport);
     enableFeature(features.hideRegion);
