@@ -2,7 +2,7 @@ export default {
   registry: {},
   inject(shortcutCombination, callback, options) {
     if (shortcutCombination in this.registry) {
-      throw new Error('❓', shortcutCombination, 'exist');
+      throw new Error(`❓ ${shortcutCombination} exist`);
     }
 
     // Provide a set of default options
