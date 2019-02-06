@@ -36,7 +36,28 @@ Simplifies the Amazon Web Services Console interface.
 <table>
   <tr>
     <th width="50%">
-      Switch between assigned Roles<br>
+      Switch between assigned roles<br>
+    </th>
+    <th width="50%">
+      Switch between AWS available regions<br>
+    </th>
+  </tr>
+  <tr><!-- Prevent zebra stripes --></tr>
+  <tr>
+    <td>
+      <img src="media/screenshot5.png">
+    </td>
+    <td>
+      <img src="media/screenshot6.gif">
+    </td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th width="50%">
+      Show custom navigation menus<br>
+      <em>(Documentation, Sign Out and more)</em>
     </th>
     <th width="50%">
       Hide unused navigation menus<br>
@@ -45,7 +66,8 @@ Simplifies the Amazon Web Services Console interface.
   <tr><!-- Prevent zebra stripes --></tr>
   <tr>
     <td>
-      <img src="media/screenshot5.png">
+      <img src="media/screenshot7.png">
+      <img src="media/screenshot8.png">
     </td>
     <td>
       <img src="media/screenshot3.png">
