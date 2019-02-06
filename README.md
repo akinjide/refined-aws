@@ -48,8 +48,8 @@ Simplifies the Amazon Web Services Console interface.
       <img src="media/screenshot5.png">
     </td>
     <td>
-      <img src="media/screenshot3.gif">
-      <img src="media/screenshot4.gif">
+      <img src="media/screenshot3.png">
+      <img src="media/screenshot4.png">
     </td>
   </tr>
 </table>
