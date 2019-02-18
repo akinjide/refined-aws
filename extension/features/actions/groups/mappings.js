@@ -238,11 +238,10 @@ export const services = {
   },
 };
 
-
 const _sortedService = {};
 for (const service in services) {
   if (services[service]) {
-    const { name, description, shortcuts } = services[service];
+    const {name, description, shortcuts} = services[service];
 
     shortcuts.sort((a, b) => (a.keys[1] < b.keys[1]) ? -1 : 1);
 
@@ -261,13 +260,13 @@ export const defaultServices = (ctx, BASE, shortcutsContext, log) => {
 
   for (const service in sortedService) {
     if (services[service]) {
-      const { name, description, shortcuts } = services[service];
+      const {name, description, shortcuts} = services[service];
 
       defaultService.push({
         name,
         description,
         shortcuts: shortcuts.map(shortcut => {
-          const { keys, uri, abbr } = shortcut;
+          const {keys, uri, abbr} = shortcut;
 
           shortcut.uri = uri.replace('%REPLACE%', BASE);
           shortcutsContext.inject(keys.join('+'), () => {

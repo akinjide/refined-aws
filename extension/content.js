@@ -48,7 +48,7 @@ function observeAndEnableFeatures() {
     enableFeature(features.moveLanguageSelectorButton);
     enableFeature(features.showDocumentationButton);
     enableFeature(features.showSignOutButton);
-    // enableFeature(features.duplicateBreadCrumbNavigation);
+    // To add enableFeature(features.duplicateBreadCrumbNavigation);
   });
 }
 
