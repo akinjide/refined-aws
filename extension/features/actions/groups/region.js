@@ -30,10 +30,10 @@ export default (ctx, shortcutsContext, log) => {
 
   if (availableRegion.length > 0) {
     $(availableRegion)
-      .each((index, a) => {
-        const regionId = $(a).attr('data-region-id');
-        const href = $(a).attr('href');
-        const title = $(a).text();
+      .each((index, region) => {
+        const regionId = $(region).attr('data-region-id');
+        const href = $(region).attr('href');
+        const title = $(region).text();
         const keys = mapping(regionId);
 
         shortcuts.push({
