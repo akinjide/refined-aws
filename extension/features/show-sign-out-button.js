@@ -4,8 +4,7 @@ export default () => {
   const el = $('#aws-console-logout');
   const parent = $(el).parent();
 
-  $(el).addClass('nav-elt');
-  $(el).addClass('ra-ssob');
+  $(el).addClass('nav-elt ra-ssob');
 
   $(el).appendTo($('#nav-menu-right'));
   $(nS()).insertBefore(el);

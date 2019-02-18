@@ -1,11 +1,16 @@
 import {default as nS} from './common/nav-separator';
 
 export default () => {
-  const el = $('#footer-content').find('#awsc-language-selector');
+  const el = $('#console-nav-footer');
+  const langSelector = $(el).find('#awsc-language-selector-content');
+  const lang = $(el)
+    .find('#footer-content')
+    .find('#awsc-language-selector');
 
-  $(el).addClass('nav-elt');
-  $(el).addClass('ra-lsb');
+  $(lang).addClass('nav-elt ra-lsb');
+  $(langSelector).addClass('ra-lsb');
 
-  $(el).appendTo($('#nav-menu-right'));
-  $(nS()).insertBefore(el);
+  $(lang).appendTo($('#nav-menu-right'));
+  $(langSelector).appendTo($('#consoleNavHeader > #awsgnav'));
+  $(nS()).insertBefore(lang);
 };
