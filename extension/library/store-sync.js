@@ -9,32 +9,32 @@ export class StoreSync {
     return this._storage;
   }
 
-  _promisify(fn, ...args) {
-    const handler = (resolve, reject) => response => {
-      const error = this._ctx.chrome.runtime.lastError;
-      return error ? reject(new Error(error)) : resolve(response);
-    };
-
-    return new Promise((resolve, reject) => fn.apply(this, [...args, handler(resolve, reject)]));
-  }
-
   get(key) {
-    return this._promisify(this._storage.sync.get, key);
+    return this._promisify(this._storage.sync, 'get', key);
   }
 
   set(data) {
-    return this._promisify(this._storage.sync.set, data);
+    return this._promisify(this._storage.sync, 'set', data);
   }
 
   usage(key) {
-    return this._promisify(this._storage.sync.getBytesInUse, key);
+    return this._promisify(this._storage.sync, 'getBytesInUse', key);
   }
 
   remove(key) {
-    return this._promisify(this._storage.sync.remove, key);
+    return this._promisify(this._storage.sync, 'remove', key);
   }
 
   clear() {
-    return this._promisify(this._storage.sync.clear);
+    return this._promisify(this._storage.sync, 'clear');
+  }
+
+  _promisify(fn, method, argument) {
+    const handler = (resolve, reject) => response => {
+      const error = this._ctx.chrome.runtime.lastError;
+      return error ? reject(new Error(error)) : resolve(response || {});
+    };
+
+    return new Promise((resolve, reject) => fn[method](argument, handler(resolve, reject)));
   }
 }
