@@ -1,11 +1,13 @@
 export default () => {
-  const el = $('awsui-breadcrumb-group');
-  const parent = $(el).parent();
-  const sibling = $(parent).siblings('awsui-table');
+  const el = $('#app')
+    .find('.awsui-util-mb-s > awsui-breadcrumb-group');
 
   console.log(el);
 
-  $(parent).clone().insertAfter($(sibling));
+  // const parent = $(el).parent();
+  // const sibling = $(parent).siblings('awsui-table');
+
+  // $(parent).clone().insertAfter($(sibling));
 };
 
 // , awsui-tabs

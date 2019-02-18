@@ -20,7 +20,7 @@ async function enableFeature({fn = (() => {}), id}) {
     }
 
     if (options[id] === false) {
-      return log('⚠️', 'Skipping', id);
+      return log('💤', 'Skipping', id);
     }
 
     await fn(log);
@@ -36,16 +36,19 @@ function onRouteChange(callback) {
 }
 
 function observeAndEnableFeatures() {
+  enableFeature(features.keyboardShortcuts);
+
   onRouteChange(() => {
-    enableFeature(features.keyboardShortcuts);
     enableFeature(features.hideAmazonConsoleLogo);
     enableFeature(features.hideSupport);
     enableFeature(features.hideRegion);
     enableFeature(features.hideFooter);
     enableFeature(features.hideResourceGroups);
-    enableFeature(features.showSignOutButton);
+    enableFeature(features.moveFeedbackButton);
+    enableFeature(features.moveLanguageSelectorButton);
     enableFeature(features.showDocumentationButton);
-    enableFeature(features.duplicateBreadCrumbNavigation);
+    enableFeature(features.showSignOutButton);
+    // enableFeature(features.duplicateBreadCrumbNavigation);
   });
 }
 

@@ -2,12 +2,16 @@ import pB from './pin-button';
 import hS from './hide-support';
 import hR from './hide-region';
 import hRG from './hide-resource-groups';
-import hF from './hide-footer';
+import hAL from './hide-amazon-logo';
 import sSOB from './show-sign-out-button';
 import sDB from './show-documentation-button';
+import fB from './feedback-button';
+import lSB from './language-selector-button';
+
+import hF from './hide-footer';
 import kS from './keyboard-shortcuts';
-import hAL from './hide-amazon-logo';
 import uSF from './use-system-font';
+
 import dBN from './duplicate-breadcrumb-navigation';
 
 export const features = {
@@ -67,6 +71,22 @@ export const features = {
     category: 'navigation',
     label: 'Show "Documentation" button',
     fn: sDB,
+    enabledByDefault: false,
+    runOnInit: false
+  },
+  moveFeedbackButton: {
+    id: 'feature-move-feedback-button',
+    category: 'navigation',
+    label: 'Move "Feedback" button',
+    fn: fB,
+    enabledByDefault: false,
+    runOnInit: false
+  },
+  moveLanguageSelectorButton: {
+    id: 'feature-move-language-selector-button',
+    category: 'navigation',
+    label: 'Move "Language Selector" button',
+    fn: lSB,
     enabledByDefault: false,
     runOnInit: false
   },
