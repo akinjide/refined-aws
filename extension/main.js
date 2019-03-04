@@ -16,4 +16,12 @@ async function main() {
   }
 }
 
+async function installerHandler({ reason }) {
+  if (reason === 'install' || reason === 'update') {
+    window.chrome.runtime.openOptionsPage()
+  }
+}
+
+window.chrome.runtime.onInstalled.addListener(installerHandler)
+
 main();

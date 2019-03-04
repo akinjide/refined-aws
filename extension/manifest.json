@@ -26,7 +26,7 @@
   },
   "content_scripts": [
     {
-      "run_at": "document_start",
+      "run_at": "document_end",
       "matches": [
         "https://console.aws.amazon.com/*",
         "https://*.console.aws.amazon.com/*"
