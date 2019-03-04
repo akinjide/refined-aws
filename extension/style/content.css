@@ -22,8 +22,7 @@
   width: 100% !important;
   background: #24292E;
   overflow-x: auto !important;
-  /*margin: 0 0 8px !important;*/
-  margin: 0 !important;
+  margin: 0 0 4px !important;
 }
 
 #consoleNavHeader > #awsgnav > #nav-menubar #nav-shortcutBar::-webkit-scrollbar {

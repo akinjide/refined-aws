@@ -1,5 +1,5 @@
 export default (ctx, shortcutsContext, log) => {
-  const el = $('#awsgnav');
+  const el = $('#consoleNavHeader > #awsgnav');
   const shortcuts = [];
   const regions = $(el).find('#regionMenuContent');
   const availableRegion = $(regions).find('a.region.available-region');

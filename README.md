@@ -90,3 +90,6 @@ Simplifies the Amazon Web Services Console interface.
 |&nbsp;         |                        |                                                       |
 | Role History  | `s` + `r`              | Switch to Root role                                   |
 |               | `s` + **numeric**      | Switch with numeric character (i.e. `2`) to role      |
+|&nbsp;         |                        |                                                       |
+| Region        | `u` + `e` + `1`        | Switch to us-east-1                                   |
+|               | **each word at 0**     | Switch with each word at `0` (i.e. `uw1 -> us-west-1`)|
