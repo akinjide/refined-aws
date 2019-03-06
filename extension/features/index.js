@@ -14,6 +14,8 @@ import uSF from './use-system-font';
 
 import dBN from './duplicate-breadcrumb-navigation';
 
+import sCC from './support-center-cases';
+
 export const features = {
   /* NAVIGATION BAR */
   pinButton: {
@@ -118,15 +120,25 @@ export const features = {
     locked: false
   },
 
+  expandSupportCenterCases: {
+    id: 'feature-expand-support-center-cases',
+    category: 'support',
+    label: 'Expand "Recent Support Cases" layout',
+    fn: sCC,
+    enabledByDefault: true,
+    runOnInit: true,
+    locked: false
+  },
+
   /* SYSTEMS MANAGER */
   duplicateBreadCrumbNavigation: {
     id: 'feature-duplicate-breadcrumb-navigation',
     category: 'systems manager',
     label: 'Show "Breadcrumb Navigation" on table bottom within Shared Resources section',
     fn: dBN,
-    locked: true,
     enabledByDefault: false,
-    runOnInit: false
+    runOnInit: false,
+    locked: true
   },
 
   /* ADVANCED */

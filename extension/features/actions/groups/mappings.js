@@ -25,6 +25,20 @@ export const services = {
         abbr: 'elasticbeanstalk',
         uri: '%REPLACE%/elasticbeanstalk/home',
         description,
+      },
+      {
+        keys: ['g', '6'],
+        name: 'Amazon Lightsail',
+        abbr: 'lightsail',
+        uri: 'lightsail.aws.amazon.com/ls/webapp/home',
+        description,
+      },
+      {
+        keys: ['g', '8'],
+        name: 'AWS Batch',
+        abbr: 'batch',
+        uri: '%REPLACE%/batch/home',
+        description,
       }
     ],
   },
@@ -112,6 +126,20 @@ export const services = {
         name: 'VPC',
         abbr: 'vpc',
         uri: '%REPLACE%/vpc/home',
+        description,
+      },
+      {
+        keys: ['g', 'g'],
+        name: 'Amazon API Gateway',
+        abbr: 'apigateway',
+        uri: '%REPLACE%/apigateway/home',
+        description,
+      },
+      {
+        keys: ['g', 'a'],
+        name: 'AWS Global Accelerator',
+        abbr: 'accelerator',
+        uri: '%REPLACE%/ec2/v2/home#GlobalAcceleratorHome',
         description,
       }
     ],
