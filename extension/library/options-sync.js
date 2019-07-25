@@ -39,7 +39,7 @@ export const optionsSync = (el, storeSync) => {
         if (changes[key]) {
           const {newValue, oldValue} = changes[key];
 
-          console.log(changes);
+          console.log('🐞', changes);
           console.log('Storage key "%s" in namespace "%s" changed. ', 'Old value was "%s", new value is "%s".', key, namespace, oldValue, newValue);
 
           // Return apply(el, { [key]: newValue })
