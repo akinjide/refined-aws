@@ -102,16 +102,16 @@ export default {
 
       // Maybe stop the event
       // e.cancelBubble is supported by IE - this will kill the bubbling process.
-      // event.cancelBubble = true;
-      // event.returnValue = false;
+      event.cancelBubble = true;
+      event.returnValue = false;
 
-      // // e.stopPropagation works in Firefox.
-      // if (event.stopPropagation) {
-      //   event.stopPropagation();
-      //   event.preventDefault();
-      // }
+      // Works in Firefox e.stopPropagation
+      if (event.stopPropagation) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
 
-      // return false;
+      return false;
     });
   }
 };

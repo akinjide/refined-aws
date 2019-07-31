@@ -75,6 +75,10 @@ body.ra-usf {
   border-style: solid;
 }
 
+#cc.ra-hF {
+  padding-bottom: 0 !important;
+}
+
 /*body.awsui-mezzanine-overrides #awsc-language-selector-content {
   z-index: 99999;
 }*/

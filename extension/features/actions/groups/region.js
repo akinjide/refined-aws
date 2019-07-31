@@ -10,6 +10,7 @@ export default (ctx, shortcutsContext, log) => {
     'us-east-2': ['u', 'e', '2'],
     'us-west-1': ['u', 'w', '1'],
     'us-west-2': ['u', 'w', '2'],
+    'ap-east-1': ['a', 'p', '1'],
     'ap-south-1': ['a', 's', '1'],
     'ap-northeast-2': ['a', 'n', '2'],
     'ap-southeast-1': ['a', 'e', '1'],
@@ -21,7 +22,8 @@ export default (ctx, shortcutsContext, log) => {
     'eu-west-2': ['e', 'w', '2'],
     'eu-west-3': ['e', 'w', '3'],
     'eu-north-1': ['e', 'n', '1'],
-    'sa-east-1': ['s', 'e', '1']
+    'sa-east-1': ['s', 'e', '1'],
+    'me-south-1': ['m', 's', '1']
   };
 
   const mapping = regionId => {
@@ -36,6 +38,8 @@ export default (ctx, shortcutsContext, log) => {
         const title = $(region).text();
         const keys = mapping(regionId);
 
+        log(`${regionId} registered with ${keys}`);
+
         shortcuts.push({
           keys,
           name: title,
@@ -49,6 +53,10 @@ export default (ctx, shortcutsContext, log) => {
       description: 'Shortcuts for switching AWS region.',
       shortcuts: shortcuts.map(shortcut => {
         const {keys, name, href} = shortcut;
+
+        if (!keys) {
+          log('❓', `no key mapping for ${name}`);
+        }
 
         shortcutsContext.inject(keys.join('+'), () => {
           ctx.location.href = href;

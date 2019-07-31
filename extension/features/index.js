@@ -1,20 +1,4 @@
-import pB from './pin-button';
-import hS from './hide-support';
-import hR from './hide-region';
-import hRG from './hide-resource-groups';
-import hAL from './hide-amazon-logo';
-import sSOB from './show-sign-out-button';
-import sDB from './show-documentation-button';
-import fB from './feedback-button';
-import lSB from './language-selector-button';
-
-import hF from './hide-footer';
-import kS from './keyboard-shortcuts';
-import uSF from './use-system-font';
-
-import dBN from './duplicate-breadcrumb-navigation';
-
-import sCC from './support-center-cases';
+import {functions} from './functions';
 
 export const features = {
   /* NAVIGATION BAR */
@@ -22,7 +6,7 @@ export const features = {
     id: 'feature-pin-button',
     category: 'navigation',
     label: 'Move "Pin" button and "Quick Navigation"',
-    fn: pB,
+    fn: functions.pB,
     enabledByDefault: true,
     runOnInit: true,
     locked: true
@@ -31,7 +15,7 @@ export const features = {
     id: 'feature-hide-amazon-console-logo',
     category: 'navigation',
     label: 'Hide "AWS Smile" logo',
-    fn: hAL,
+    fn: functions.hAL,
     enabledByDefault: false,
     runOnInit: false,
     locked: false
@@ -40,7 +24,7 @@ export const features = {
     id: 'feature-hide-support',
     category: 'navigation',
     label: 'Hide "Support" selection',
-    fn: hS,
+    fn: functions.hS,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -48,7 +32,7 @@ export const features = {
     id: 'feature-hide-region',
     category: 'navigation',
     label: 'Hide "Region" selection',
-    fn: hR,
+    fn: functions.hR,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -56,7 +40,7 @@ export const features = {
     id: 'feature-hide-resource-groups',
     category: 'navigation',
     label: 'Hide "Resource Groups" selection',
-    fn: hRG,
+    fn: functions.hRG,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -64,7 +48,7 @@ export const features = {
     id: 'feature-show-sign-out-button',
     category: 'navigation',
     label: 'Show "Sign Out" button',
-    fn: sSOB,
+    fn: functions.sSOB,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -72,7 +56,7 @@ export const features = {
     id: 'feature-show-documentation-button',
     category: 'navigation',
     label: 'Show "Documentation" button',
-    fn: sDB,
+    fn: functions.sDB,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -80,7 +64,7 @@ export const features = {
     id: 'feature-move-feedback-button',
     category: 'navigation',
     label: 'Move "Feedback" button',
-    fn: fB,
+    fn: functions.fB,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -88,7 +72,7 @@ export const features = {
     id: 'feature-move-language-selector-button',
     category: 'navigation',
     label: 'Move "Language Selector" button',
-    fn: lSB,
+    fn: functions.lSB,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -98,7 +82,7 @@ export const features = {
     id: 'feature-hide-footer',
     category: 'general',
     label: 'Hide console "Footer"',
-    fn: hF,
+    fn: functions.hF,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -106,7 +90,7 @@ export const features = {
     id: 'feature-keyboard-shortcuts',
     category: 'general',
     label: 'Enable "Keyboard Shortcuts"',
-    fn: kS,
+    fn: functions.kS,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -114,17 +98,18 @@ export const features = {
     id: 'feature-use-system-font',
     category: 'general',
     label: 'Use the "System Font"',
-    fn: uSF,
+    fn: functions.uSF,
     enabledByDefault: true,
     runOnInit: true,
     locked: false
   },
 
+  /* SUPPORT */
   expandSupportCenterCases: {
     id: 'feature-expand-support-center-cases',
     category: 'support',
     label: 'Expand "Recent Support Cases" layout',
-    fn: sCC,
+    fn: functions.sCC,
     enabledByDefault: true,
     runOnInit: true,
     locked: false
@@ -135,7 +120,7 @@ export const features = {
     id: 'feature-duplicate-breadcrumb-navigation',
     category: 'systems manager',
     label: 'Show "Breadcrumb Navigation" on table bottom within Shared Resources section',
-    fn: dBN,
+    fn: functions.dBN,
     enabledByDefault: false,
     runOnInit: false,
     locked: true

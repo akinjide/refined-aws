@@ -17,13 +17,18 @@ export default (ctx, shortcutsContext, log) => {
       name: 'Home',
       abbr: 'home',
       description: 'Go %REPLACE%',
+    },
+    {
+      keys: ['z', 'z'],
+      name: 'Quick Open',
+      abbr: 'quickopen',
+      description: 'Quick Search Services',
     }
   ];
 
-  const el = $('#usernameMenuContent')
-    .find('#awsc-switch-role');
+  const elRoles = $('#usernameMenuContent').find('#awsc-switch-role');
 
-  if (el.length === 1) {
+  if (elRoles.length === 1) {
     shortcuts.push({
       keys: ['s', 's'],
       name: 'Switch Role',
@@ -37,16 +42,82 @@ export default (ctx, shortcutsContext, log) => {
       const AWS_HOME = 'https://console.aws.amazon.com/console/home';
       const {keys, abbr} = shortcut;
 
-      if (abbr === 'home') {
-        shortcutsContext.inject(keys.join('+'), () => {
-          ctx.location.href = AWS_HOME;
-        });
-      }
+      const el = $('#servicesMenuContent .awsc-services-search');
+      const input = $(el).find('#awsc-input-wrapper > input');
+      const parent = $(el).parent();
+      const siblings = $(el).siblings();
+      const styles = {
+        default: {
+          parent: {
+            'min-height': '310px',
+            'border-radius': '0 0 4px 4px',
+            display: 'none'
+          },
+          siblings: {
+            display: 'block'
+          },
+          el: {
+            padding: '26px 1.5% 0 1.5%'
+          }
+        },
+        override: {
+          parent: {
+            'min-height': '20px',
+            'border-radius': '4px',
+            display: 'block'
+          },
+          siblings: {
+            display: 'none'
+          },
+          el: {
+            padding: '10px'
+          }
+        }
+      };
 
-      if (abbr === 'roleswitch') {
-        shortcutsContext.inject(keys.join('+'), () => {
-          $(el)[0].click();
-        });
+      const castStyles = styles => {
+        $(parent).css(styles.parent);
+
+        $(siblings)
+          .each((index, sibling) => {
+            $(sibling).css(styles.siblings);
+          });
+
+        $(el).css(styles.el);
+      };
+
+      switch (abbr) {
+        case 'home':
+          shortcutsContext.inject(keys.join('+'), () => {
+            ctx.location.href = AWS_HOME;
+          });
+
+          break;
+
+        case 'roleswitch':
+          shortcutsContext.inject(keys.join('+'), () => {
+            $(elRoles)[0].click();
+          });
+
+          break;
+
+        case 'quickopen':
+          input.focusout(() => {
+            setTimeout(() => castStyles(styles.default), 500);
+          });
+
+          input.on('focusout focusin', e => {
+            e.target.value = '';
+          });
+
+          shortcutsContext.inject(keys.join('+'), () => {
+            castStyles(styles.override);
+            input.focus();
+          });
+
+          break;
+
+        default:
       }
 
       log('🔡', abbr, keys);
