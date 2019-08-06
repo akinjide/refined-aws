@@ -57,7 +57,13 @@ export default (ctx, shortcutsContext, log) => {
             display: 'block'
           },
           el: {
-            padding: '26px 1.5% 0 1.5%'
+            padding: '26px 1.5% 0 1.5%',
+          },
+          filterGroup: {
+            display: 'table'
+          },
+          inputWrapper: {
+            width: '80%'
           }
         },
         override: {
@@ -71,6 +77,12 @@ export default (ctx, shortcutsContext, log) => {
           },
           el: {
             padding: '10px'
+          },
+          filterGroup: {
+            display: 'none'
+          },
+          inputWrapper: {
+            width: '96%'
           }
         }
       };
@@ -84,6 +96,8 @@ export default (ctx, shortcutsContext, log) => {
           });
 
         $(el).css(styles.el);
+        $(el).find('#awsc-input-wrapper').css(styles.inputWrapper);
+        $(el).find('#awsc-services-search-filter-group').css(styles.filterGroup);
       };
 
       switch (abbr) {
@@ -102,17 +116,23 @@ export default (ctx, shortcutsContext, log) => {
           break;
 
         case 'quickopen':
-          input.focusout(() => {
-            setTimeout(() => castStyles(styles.default), 500);
-          });
-
           input.on('focusout focusin', e => {
             e.target.value = '';
           });
 
           shortcutsContext.inject(keys.join('+'), () => {
             castStyles(styles.override);
+
             input.focus();
+            input.focusout(() => {
+              const defaultStyles = $(parent).css(['min-height', 'border-radius', 'display']);
+
+              if (defaultStyles['min-height'] === styles.default.parent['min-height']) {
+                return null;
+              }
+
+              setTimeout(() => castStyles(styles.default), 200);
+            });
           });
 
           break;
