@@ -29,6 +29,10 @@
   display: none;
 }
 
+#b > #h {
+  height: auto !important;
+}
+
 /** Show "Sign Out" button */
 /** Show "Documentation" button */
 /** Show "Feedback" button */
