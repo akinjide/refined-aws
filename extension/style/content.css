@@ -33,6 +33,16 @@
   height: auto !important;
 }
 
+/** Navigation Service Catalog */
+body.sc-aws-header > #h {
+  position: relative !important;
+  height: 80px;
+}
+
+body.sc-aws-header .sc-main-content {
+  margin-top: 0 !important;
+}
+
 /** Show "Sign Out" button */
 /** Show "Documentation" button */
 /** Show "Feedback" button */
