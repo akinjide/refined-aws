@@ -7,6 +7,7 @@ Simplifies the Amazon Web Services Console interface.
 ## Install
 
 - **Chrome** extension
+- **Firefox** extension
 
 
 ## Highlights
