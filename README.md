@@ -85,7 +85,7 @@ Simplifies the Amazon Web Services Console interface.
 |               | `esc`                                       | Hide Shortcuts Dialog                                 |
 |               | `g` + `h` + `o`                             | Go Home                                               |
 |&nbsp;         |                                             |                                                       |
-| Services      | `g` + (**numeric** **||** **alphabet**) * 2 | Go to AWS service with numeric character (i.e. `2`)   |
+| Services      | `g` + (**numeric**, **alphabet**) * 2       | Go to AWS service with numeric character (i.e. `2`)   |
 |               |                                             |                                                       |
 |&nbsp;         |                                             |                                                       |
 | Role History  | `s` + `s` + `r`                             | Switch Root                                           |
