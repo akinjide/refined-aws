@@ -10,7 +10,7 @@ async function main() {
     await storeSync.set({...options, ...defaultFeatures});
     console.log('✅', 'Saved default');
   } catch (error) {
-    console.log('❓', 'Error saving default');
+    console.log('❌', 'Error saving default');
     // Fix: Handle error, retry sync or write to log file but put under logging option.
     console.log(error);
   }

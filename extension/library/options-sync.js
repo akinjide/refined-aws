@@ -27,7 +27,7 @@ export const optionsSync = (el, storeSync) => {
       console.info('✅', `Saved option ${name} to ${value}`);
     } catch (error) {
       console.log(error);
-      console.info('❓', `Error saving option ${name} to ${value}`);
+      console.info('❌', `Error saving option ${name} to ${value}`);
     }
     console.groupEnd();
   });

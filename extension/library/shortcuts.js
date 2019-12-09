@@ -36,10 +36,10 @@ export default {
     let keyQueue = [];
     let track = 0;
 
-    const REGISTRY_KEYS = Object.keys(shortcutsContext.registry)
+    const registryKeys = Object.keys(shortcutsContext.registry)
       .map(key => key.split('+'))
       .sort((a, b) => (a[0] < b[0]) ? -1 : 1);
-    const MAX_REGISTRY_KEY = REGISTRY_KEYS.reduce((acc, curr) => (acc > curr.length) ? acc : curr.length, 0);
+    const maxRegistryKey = registryKeys.reduce((acc, curr) => (acc > curr.length) ? acc : curr.length, 0);
     const el = $('#refined-aws-keyboard');
     const sibling = $(el).siblings('.overlay');
 
@@ -48,7 +48,6 @@ export default {
       const {key: keyName} = event;
       const char = String.fromCharCode(event.keyCode).toLowerCase();
 
-      // Don't enable shortcut keys in Input, Textarea fields
       if (event.target) {
         element = event.target;
       } else if (event.srcElement) {
@@ -59,7 +58,8 @@ export default {
         element = element.parentNode;
       }
 
-      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+      // Don't enable shortcut keys in Input, Textarea fields
+      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.hasAttribute("contenteditable")) {
         return;
       }
 
@@ -75,14 +75,14 @@ export default {
 
         default:
           // Add event.ctrlKey, event.shiftKey, event.altKey, event.metaKey mapping support
-          for (let i = 0; i < REGISTRY_KEYS.length; i++) {
-            if (REGISTRY_KEYS[i].indexOf(char) === track) {
+          for (let i = 0; i < registryKeys.length; i++) {
+            if (registryKeys[i].indexOf(char) === track) {
               keyQueue.push(char);
               track += 1;
               break;
             }
 
-            if (REGISTRY_KEYS[i].indexOf(char) === -1 && i + 1 === REGISTRY_KEYS.length) {
+            if (registryKeys[i].indexOf(char) === -1 && i + 1 === registryKeys.length) {
               keyQueue = [];
               track = 0;
             }
@@ -92,9 +92,10 @@ export default {
             shortcutsContext.registry[keyQueue.join('+')].callback(event);
             keyQueue = [];
             track = 0;
+            return false;
           }
 
-          if (keyQueue.length === MAX_REGISTRY_KEY) {
+          if (keyQueue.length === maxRegistryKey) {
             keyQueue = [];
             track = 0;
           }
@@ -102,16 +103,16 @@ export default {
 
       // Maybe stop the event
       // e.cancelBubble is supported by IE - this will kill the bubbling process.
-      event.cancelBubble = true;
-      event.returnValue = false;
+      // event.cancelBubble = true;
+      // event.returnValue = false;
 
       // Works in Firefox e.stopPropagation
-      if (event.stopPropagation) {
-        event.stopPropagation();
-        event.preventDefault();
-      }
+      // if (event.stopPropagation) {
+      //   event.stopPropagation();
+      //   event.preventDefault();
+      // }
 
-      return false;
+      return true;
     });
   }
 };

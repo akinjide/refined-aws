@@ -26,7 +26,7 @@ async function enableFeature({fn = (() => {}), id}) {
     await fn(log);
     log('✅', id);
   } catch (error) {
-    log('❓', id);
+    log('❌', id);
     log(error);
   }
 }
