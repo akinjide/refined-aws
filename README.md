@@ -79,17 +79,18 @@ Simplifies the Amazon Web Services Console interface.
 
 ## Keyboard Shortcuts
 
-| Category      | Shortcut               | Description                                           |
-| :------------ |:-----------------------|:------------------------------------------------------|
-| General       | `?`                    | Show Shortcuts Dialog                                 |
-|               | `esc`                  | Hide Shortcuts Dialog                                 |
-|               | `g` + `h`              | Go Home                                               |
-|&nbsp;         |                        |                                                       |
-| Services      | `g` + **numeric**      | Go to AWS service with numeric character (i.e. `2`)   |
-|               | `g` + **alphabet**     | Go to AWS service with alphabet character (i.e. `a`)  |
-|&nbsp;         |                        |                                                       |
-| Role History  | `s` + `r`              | Switch to Root role                                   |
-|               | `s` + **numeric**      | Switch with numeric character (i.e. `2`) to role      |
-|&nbsp;         |                        |                                                       |
-| Region        | `u` + `e` + `1`        | Switch to us-east-1                                   |
-|               | **each word at 0**     | Switch with each word at `0` (i.e. `uw1 -> us-west-1`)|
+| Category      | Shortcut                                    | Description                                           |
+| :------------ |:--------------------------------------------|:------------------------------------------------------|
+| General       | `?`                                         | Show Shortcuts Dialog                                 |
+|               | `esc`                                       | Hide Shortcuts Dialog                                 |
+|               | `g` + `h` + `o`                             | Go Home                                               |
+|&nbsp;         |                                             |                                                       |
+| Services      | `g` + (**numeric** || **alphabet**) * 2     | Go to AWS service with numeric character (i.e. `2`)   |
+|               |                                             |                                                       |
+|&nbsp;         |                                             |                                                       |
+| Role History  | `s` + `s` + `r`                             | Switch Root                                           |
+|               | `s` + `r` + `r`                             | Switch to Root role                                   |
+|               | `s` + `r` + **numeric**                     | Switch with numeric character (i.e. `2`) to role      |
+|&nbsp;         |                                             |                                                       |
+| Region        | `u` + `e` + `1`                             | Switch to us-east-1                                   |
+|               | **each word at 0**                          | Switch with each word at `0` (i.e. `uw1 -> us-west-1`)|
