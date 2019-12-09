@@ -3,7 +3,7 @@ import {keyboard} from '../../common/keyboard';
 const keyboardFn = keyboard();
 
 export const defaultServices = (ctx, baseURL, shortcutsContext, log) => {
-  let services = {};
+  const services = {};
   const el = $('#consoleNavHeader > #awsgnav');
   const servicesMenu = $(el).find('#servicesMenuContent #awsc-services-container');
   const serviceGroups = $(servicesMenu).find('ul.services-group');
@@ -21,7 +21,7 @@ export const defaultServices = (ctx, baseURL, shortcutsContext, log) => {
 
       $(serviceGroup).find('li').each((index, service) => {
         const filterFn = c => c.startsWith('ico-');
-        const headerMatch = Array.from($(service).attr("class").split(" ")).some(filterFn);
+        const headerMatch = [...$(service).attr('class').split(' ')].some(filterFn);
 
         if (headerMatch) {
           const title = $(service).text();
@@ -30,9 +30,9 @@ export const defaultServices = (ctx, baseURL, shortcutsContext, log) => {
           ([serviceHeaderIdentifier] = serviceHeaderClassNames.split(' ').filter(filterFn));
           services[serviceHeaderIdentifier] = {
             name: title,
-            // description: 'Shortcuts for x services.',
+            // Remove maybe? description: 'Shortcuts for x services.',
             shortcuts: [],
-          }
+          };
         } else {
           const serviceIdentifier = $(service).attr('data-service-id');
           const serviceHref = $(service).attr('data-service-href');
@@ -41,7 +41,7 @@ export const defaultServices = (ctx, baseURL, shortcutsContext, log) => {
 
           if (services[serviceHeaderIdentifier]) {
             services[serviceHeaderIdentifier].shortcuts.push(
-              keyboardFn.genShortcut(['g', ...keys.split('')], serviceTitle, serviceIdentifier, '', { uri: serviceHref })
+              keyboardFn.genShortcut(['g', ...keys.split('')], serviceTitle, serviceIdentifier, '', {uri: serviceHref})
             );
           }
         }
@@ -65,9 +65,9 @@ export const defaultServices = (ctx, baseURL, shortcutsContext, log) => {
         shortcuts: shortcuts.map(shortcut => {
           const {keys, uri, abbr} = shortcut;
 
-          // shortcut.uri = uri.replace('%REPLACE%', baseURL);
+          // Remove, maybe? shortcut.uri = uri.replace('%REPLACE%', baseURL);
           shortcutsContext.inject(keys.join('+'), () => {
-            ctx.location.replace(shortcut.uri);
+            ctx.location.replace(uri);
           });
 
           log('🔡', abbr, keys);

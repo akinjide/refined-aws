@@ -4,17 +4,17 @@ const keyboardFn = keyboard();
 
 export default (ctx, baseURL, shortcutsContext, log) => {
   const shortcuts = [
-    keyboardFn.genShortcut(['?'], 'Shortcuts Dialog', '', '', { description: 'Show this %REPLACE%' }),
-    keyboardFn.genShortcut(['esc'], 'Shortcuts Dialog', '', '', { description: 'Hide this %REPLACE%' }),
-    keyboardFn.genShortcut(['g', 'h', 'o'], 'Home', 'home', '', { description: 'Go %REPLACE%' }),
-    keyboardFn.genShortcut(['q', 'q'], 'Quick Open', 'quickopen', '', { description: 'Quick Search Services' }),
+    keyboardFn.genShortcut(['?'], 'Shortcuts Dialog', '', '', {description: 'Show this %REPLACE%'}),
+    keyboardFn.genShortcut(['esc'], 'Shortcuts Dialog', '', '', {description: 'Hide this %REPLACE%'}),
+    keyboardFn.genShortcut(['g', 'h', 'o'], 'Home', 'home', '', {description: 'Go %REPLACE%'}),
+    keyboardFn.genShortcut(['q', 'q'], 'Quick Open', 'quickopen', '', {description: 'Quick Search Services'}),
   ];
 
   const elRoles = $('#usernameMenuContent').find('#awsc-switch-role');
 
   if (elRoles.length === 1) {
     shortcuts.push(
-      keyboardFn.genShortcut(['s', 's', 'r'], 'Switch Role', 'roleswitch', '', { description: '%REPLACE%' })
+      keyboardFn.genShortcut(['s', 's', 'r'], 'Switch Role', 'roleswitch', '', {description: '%REPLACE%'})
     );
   }
 

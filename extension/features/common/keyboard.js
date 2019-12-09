@@ -1,7 +1,7 @@
 const description = 'Go to %REPLACE%';
 
 export const keyboard = () => {
-  let cache = {};
+  const cache = {};
 
   return {
     cache,
@@ -13,7 +13,7 @@ export const keyboard = () => {
       description,
       ...override,
     }),
-    genKeys (identifier, index, log) {
+    genKeys(identifier, index, log) {
       function gen(index) {
         const first = identifier.substring(0, 1);
         const last = identifier.substring((identifier.length - 1) - index, (identifier.length - index));
@@ -21,9 +21,9 @@ export const keyboard = () => {
         return first + last;
       }
 
-      let val = gen(index);
+      const val = gen(index);
 
-      if (val.length < 1) {
+      if (val.length === 0) {
         log('❌', `no possible key gen for ${identifier}`);
         return '';
       }
@@ -36,11 +36,11 @@ export const keyboard = () => {
       if (cache[val]) {
         log('⚠️', `cache match ${cache[val]}; ${val}; ${identifier}`);
         return this.genKeys(identifier, index + 1, log);
-      } else {
-        cache[val] = identifier;
-        log('✅', `no cache match ${cache[val]}; ${val}; ${identifier}`);
-        return val;
       }
+
+      cache[val] = identifier;
+      log('✅', `no cache match ${cache[val]}; ${val}; ${identifier}`);
+      return val;
     }
   };
 };

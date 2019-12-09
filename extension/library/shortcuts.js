@@ -59,7 +59,7 @@ export default {
       }
 
       // Don't enable shortcut keys in Input, Textarea fields
-      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.hasAttribute("contenteditable")) {
+      if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.hasAttribute('contenteditable')) {
         return;
       }
 

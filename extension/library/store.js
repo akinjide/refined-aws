@@ -28,7 +28,7 @@ export class Store {
   _promisify(fn, method, argument) {
     const handler = (resolve, reject) => response => {
       const error = this._ctx.chrome.runtime.lastError;
-      return error ? reject(new Error(error)): resolve(response || {});
+      return error ? reject(new Error(error)) : resolve(response || {});
     };
 
     return new Promise((resolve, reject) => fn[method](argument, handler(resolve, reject)));
