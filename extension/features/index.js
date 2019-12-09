@@ -116,15 +116,15 @@ export const features = {
   },
 
   /* SYSTEMS MANAGER */
-  duplicateBreadCrumbNavigation: {
-    id: 'feature-duplicate-breadcrumb-navigation',
-    category: 'systems manager',
-    label: 'Show "Breadcrumb Navigation" on table bottom within Shared Resources section',
-    fn: functions.dBN,
-    enabledByDefault: false,
-    runOnInit: false,
-    locked: true
-  },
+  // duplicateBreadCrumbNavigation: {
+  //   id: 'feature-duplicate-breadcrumb-navigation',
+  //   category: 'systems manager',
+  //   label: 'Show "Breadcrumb Navigation" on table bottom within Shared Resources section',
+  //   fn: functions.dBN,
+  //   enabledByDefault: false,
+  //   runOnInit: false,
+  //   locked: true
+  // },
 
   /* ADVANCED */
   showExtensionLogs: {
