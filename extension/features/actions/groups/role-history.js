@@ -1,3 +1,7 @@
+import {keyboard} from '../../common/keyboard';
+
+const keyboardFn = keyboard();
+
 export default (ctx, shortcutsContext, log) => {
   const el = $('#usernameMenuContent');
   const shortcuts = [];
@@ -8,12 +12,12 @@ export default (ctx, shortcutsContext, log) => {
   if (rootAccount.length === 1) {
     const input = $(rootAccount).find('#awsc-exit-role');
 
-    shortcuts.push({
-      keys: ['s', 'r'],
-      name: input.val(),
-      description: '%REPLACE% @ ROOT',
-      input,
-    });
+    shortcuts.push(
+      keyboardFn.genShortcut(['s', 'r', 'r'], input.val(), '', '', {
+        description: '%REPLACE% @ ROOT',
+        input,
+      })
+    );
   }
 
   $(el)
@@ -24,12 +28,12 @@ export default (ctx, shortcutsContext, log) => {
         const name = $(li).find('input[name="displayName"]').val();
         const input = $(li).children('form').find(`#awsc-recent-role-switch-${index}`);
 
-        shortcuts.push({
-          keys: ['s', `${index}`],
-          name,
-          description: 'Switch to %REPLACE%',
-          input,
-        });
+        shortcuts.push(
+          keyboardFn.genShortcut(['s', 'r', `${index}`], name, '', '', {
+            description: 'Switch to %REPLACE%',
+            input,
+          })
+        );
       }
     });
 

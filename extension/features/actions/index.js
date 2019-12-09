@@ -1,16 +1,13 @@
 import general from './groups/general';
 import roleHistory from './groups/role-history';
-import region from './groups/region';
+import regions from './groups/regions';
+import {defaultServices} from './groups/services';
 
-import {defaultServices} from './groups/mappings';
+const baseURL = 'console.aws.amazon.com';
 
-export default (ctx, shortcutsContext, log) => {
-  const BASE = 'console.aws.amazon.com';
-
-  return [
-    general(ctx, shortcutsContext, log),
-    roleHistory(ctx, shortcutsContext, log),
-    region(ctx, shortcutsContext, log),
-    ...defaultServices(ctx, BASE, shortcutsContext, log),
-  ];
-};
+export default (ctx, shortcutsContext, log) => [
+  general(ctx, baseURL, shortcutsContext, log),
+  roleHistory(ctx, shortcutsContext, log),
+  regions(ctx, shortcutsContext, log),
+  ...defaultServices(ctx, baseURL, shortcutsContext, log),
+];

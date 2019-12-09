@@ -1,45 +1,26 @@
-export default (ctx, shortcutsContext, log) => {
+import {keyboard} from '../../common/keyboard';
+
+const keyboardFn = keyboard();
+
+export default (ctx, baseURL, shortcutsContext, log) => {
   const shortcuts = [
-    {
-      keys: ['?'],
-      name: 'Shortcuts Dialog',
-      abbr: '',
-      description: 'Show this %REPLACE%',
-    },
-    {
-      keys: ['esc'],
-      name: 'Shortcuts Dialog',
-      abbr: '',
-      description: 'Hide this %REPLACE%',
-    },
-    {
-      keys: ['g', 'h'],
-      name: 'Home',
-      abbr: 'home',
-      description: 'Go %REPLACE%',
-    },
-    {
-      keys: ['z', 'z'],
-      name: 'Quick Open',
-      abbr: 'quickopen',
-      description: 'Quick Search Services',
-    }
+    keyboardFn.genShortcut(['?'], 'Shortcuts Dialog', '', '', { description: 'Show this %REPLACE%' }),
+    keyboardFn.genShortcut(['esc'], 'Shortcuts Dialog', '', '', { description: 'Hide this %REPLACE%' }),
+    keyboardFn.genShortcut(['g', 'h', 'o'], 'Home', 'home', '', { description: 'Go %REPLACE%' }),
+    keyboardFn.genShortcut(['q', 'q'], 'Quick Open', 'quickopen', '', { description: 'Quick Search Services' }),
   ];
 
   const elRoles = $('#usernameMenuContent').find('#awsc-switch-role');
 
   if (elRoles.length === 1) {
-    shortcuts.push({
-      keys: ['s', 's'],
-      name: 'Switch Role',
-      abbr: 'roleswitch',
-      description: '%REPLACE%',
-    });
+    shortcuts.push(
+      keyboardFn.genShortcut(['s', 's', 'r'], 'Switch Role', 'roleswitch', '', { description: '%REPLACE%' })
+    );
   }
 
   shortcuts
     .map(shortcut => {
-      const AWS_HOME = 'https://console.aws.amazon.com/console/home';
+      const awsHome = `https://${baseURL}/console/home`;
       const {keys, abbr} = shortcut;
 
       const el = $('#servicesMenuContent .awsc-services-search');
@@ -103,7 +84,7 @@ export default (ctx, shortcutsContext, log) => {
       switch (abbr) {
         case 'home':
           shortcutsContext.inject(keys.join('+'), () => {
-            ctx.location.href = AWS_HOME;
+            ctx.location.href = awsHome;
           });
 
           break;

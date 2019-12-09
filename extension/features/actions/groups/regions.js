@@ -1,3 +1,7 @@
+import {keyboard} from '../../common/keyboard';
+
+const keyboardFn = keyboard();
+
 export default (ctx, shortcutsContext, log) => {
   const el = $('#consoleNavHeader > #awsgnav');
   const shortcuts = [];
@@ -26,26 +30,24 @@ export default (ctx, shortcutsContext, log) => {
     'me-south-1': ['m', 's', '1']
   };
 
-  const mapping = regionId => {
-    return REGION_MAPPINGS[regionId];
-  };
+  const regionMapping = regionId => REGION_MAPPINGS[regionId];
 
   if (availableRegion.length > 0) {
     $(availableRegion)
       .each((index, region) => {
         const regionId = $(region).attr('data-region-id');
         const href = $(region).attr('href');
-        const title = $(region).text();
-        const keys = mapping(regionId);
+        const [title] = $(region).text().split(/[a-z]*-/);
+        const keys = regionMapping(regionId);
 
         log(`${regionId} registered with ${keys}`);
 
-        shortcuts.push({
-          keys,
-          name: title,
-          description: 'Switch to %REPLACE%',
-          href,
-        });
+        shortcuts.push(
+          keyboardFn.genShortcut(keys, title, '', '', {
+            description: 'Switch to %REPLACE%',
+            href,
+          })
+        );
       });
 
     return {
@@ -55,7 +57,7 @@ export default (ctx, shortcutsContext, log) => {
         const {keys, name, href} = shortcut;
 
         if (!keys) {
-          log('❓', `no key mapping for ${name}`);
+          log('❌', `no key mapping for ${name}`);
         }
 
         shortcutsContext.inject(keys.join('+'), () => {
