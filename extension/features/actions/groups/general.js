@@ -2,7 +2,7 @@ import {keyboard} from '../../common/keyboard';
 
 const keyboardFn = keyboard();
 
-export default (ctx, baseURL, shortcutsContext, log) => {
+export default (ctx, config, shortcutsContext, log) => {
   const shortcuts = [
     keyboardFn.genShortcut(['?'], 'Shortcuts Dialog', '', '', {description: 'Show this %REPLACE%'}),
     keyboardFn.genShortcut(['esc'], 'Shortcuts Dialog', '', '', {description: 'Hide this %REPLACE%'}),
@@ -20,7 +20,7 @@ export default (ctx, baseURL, shortcutsContext, log) => {
 
   shortcuts
     .map(shortcut => {
-      const awsHome = `https://${baseURL}/console/home`;
+      const awsHome = `https://${config.baseURL}/console/home`;
       const {keys, abbr} = shortcut;
 
       const el = $('#servicesMenuContent .awsc-services-search');

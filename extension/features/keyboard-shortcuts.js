@@ -1,8 +1,9 @@
+import config from '../config';
 import shortcutsContext from '../library/shortcuts';
 import {default as actions} from './actions';
 
 export default log => {
-  const keyBoardShortcuts = actions(window, shortcutsContext, log);
+  const keyBoardShortcuts = actions(window, config, shortcutsContext, log);
   const element = $(`
     <div id="refined-aws-keyboard">
       <div class="refined-aws-container">

@@ -1,13 +1,11 @@
 import general from './groups/general';
 import roleHistory from './groups/role-history';
 import regions from './groups/regions';
-import {defaultServices} from './groups/services';
+import {services} from './groups/services';
 
-const baseURL = 'console.aws.amazon.com';
-
-export default (ctx, shortcutsContext, log) => [
-  general(ctx, baseURL, shortcutsContext, log),
+export default (ctx, config, shortcutsContext, log) => [
+  general(ctx, config, shortcutsContext, log),
   roleHistory(ctx, shortcutsContext, log),
   regions(ctx, shortcutsContext, log),
-  ...defaultServices(ctx, baseURL, shortcutsContext, log),
+  ...services(ctx, config, shortcutsContext, log),
 ];

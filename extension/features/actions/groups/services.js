@@ -2,8 +2,8 @@ import {keyboard} from '../../common/keyboard';
 
 const keyboardFn = keyboard();
 
-export const defaultServices = (ctx, baseURL, shortcutsContext, log) => {
-  const services = {};
+export const services = (ctx, config, shortcutsContext, log) => {
+  const tmpServices = {};
   const el = $('#consoleNavHeader > #awsgnav');
   const servicesMenu = $(el).find('#servicesMenuContent #awsc-services-container');
   const serviceGroups = $(servicesMenu).find('ul.services-group');
@@ -28,7 +28,7 @@ export const defaultServices = (ctx, baseURL, shortcutsContext, log) => {
           const serviceHeaderClassNames = $(service).attr('class');
 
           ([serviceHeaderIdentifier] = serviceHeaderClassNames.split(' ').filter(filterFn));
-          services[serviceHeaderIdentifier] = {
+          tmpServices[serviceHeaderIdentifier] = {
             name: title,
             // Remove maybe? description: 'Shortcuts for x services.',
             shortcuts: [],
@@ -39,8 +39,8 @@ export const defaultServices = (ctx, baseURL, shortcutsContext, log) => {
           const serviceTitle = $(service).find('a > span.service-label').text();
           const keys = keyboardFn.genKeys(serviceIdentifier, 0, log);
 
-          if (services[serviceHeaderIdentifier]) {
-            services[serviceHeaderIdentifier].shortcuts.push(
+          if (tmpServices[serviceHeaderIdentifier]) {
+            tmpServices[serviceHeaderIdentifier].shortcuts.push(
               keyboardFn.genShortcut(['g', ...keys.split('')], serviceTitle, serviceIdentifier, '', {uri: serviceHref})
             );
           }
@@ -51,21 +51,21 @@ export const defaultServices = (ctx, baseURL, shortcutsContext, log) => {
     log('✅', 'services key cache', keyboardFn.cache);
   }
 
-  log('✅', 'aws services', services);
+  log('✅', 'aws services', tmpServices);
 
-  const defaultService = [];
+  const defaultServices = [];
 
-  for (const service in services) {
-    if (services[service]) {
-      const {name, description, shortcuts} = services[service];
+  for (const service in tmpServices) {
+    if (tmpServices[service]) {
+      const {name, description, shortcuts} = tmpServices[service];
 
-      defaultService.push({
+      defaultServices.push({
         name,
         description,
         shortcuts: shortcuts.map(shortcut => {
           const {keys, uri, abbr} = shortcut;
 
-          // Remove, maybe? shortcut.uri = uri.replace('%REPLACE%', baseURL);
+          // Remove, maybe? shortcut.uri = uri.replace('%REPLACE%', config.baseURL);
           shortcutsContext.inject(keys.join('+'), () => {
             ctx.location.replace(uri);
           });
@@ -78,5 +78,5 @@ export const defaultServices = (ctx, baseURL, shortcutsContext, log) => {
     }
   }
 
-  return defaultService;
+  return defaultServices;
 };
