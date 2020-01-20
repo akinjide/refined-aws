@@ -26,7 +26,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "chrome-webstore-upload-cli": "^1.2.0",
-    "copy-webpack-plugin": "^4.6.0",
+    "copy-webpack-plugin": "^5.1.1",
     "dot-json": "^1.0.4",
     "faker": "^4.1.0",
     "npm-run-all": "^4.1.5",

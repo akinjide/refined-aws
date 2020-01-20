@@ -25,7 +25,9 @@ module.exports = {
       {
         from: '*',
         context: 'extension',
-        ignore: '*.js'
+        ignore: [
+          '*.js'
+        ]
       },
       {
         from: 'style/*',
