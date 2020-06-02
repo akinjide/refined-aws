@@ -18,7 +18,6 @@
   "dependencies": {
     "element-ready": "^3.0.0",
     "jquery": "^3.5.1",
-    "uri-js": "^4.2.2",
     "webextension-polyfill": "^0.3.1"
   },
   "devDependencies": {
@@ -32,7 +31,6 @@
     "copy-webpack-plugin": "^5.1.1",
     "dot-json": "^1.0.4",
     "faker": "^4.1.0",
-    "from-env": "^1.1.4",
     "npm-run-all": "^4.1.5",
     "sinon": "^7.2.3",
     "stylelint": "^9.10.1",
