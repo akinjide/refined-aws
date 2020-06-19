@@ -4,7 +4,7 @@
   "license": "MIT",
   "author": "Akinjide Bankole <r@akinjide.me>",
   "scripts": {
-    "lint": "xo && stylelint extension/*.css && npm run build && web-ext lint --source-dir=./extension/build --output=text --ignore-files jquery.slim.min.js",
+    "lint": "xo && stylelint extension/*.css && npm run build && web-ext lint --source-dir=./extension/build --output=text",
     "test": "npm run lint",
     "test:watch": "ava --verbose --watch",
     "build": "webpack --mode=production && web-ext build --source-dir=./extension/build --artifacts-dir=./extension-artifacts --overwrite-dest",
