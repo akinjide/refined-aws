@@ -4,14 +4,16 @@
   "license": "MIT",
   "author": "Akinjide Bankole <r@akinjide.me>",
   "scripts": {
-    "lint": "xo && stylelint extension/*.css",
+    "lint": "xo && stylelint extension/*.css && npm run build && web-ext lint --source-dir=./extension/build --output=text",
     "test": "npm run lint",
     "test:watch": "ava --verbose --watch",
-    "build": "webpack --mode=production",
+    "build": "webpack --mode=production && web-ext build --source-dir=./extension/build --artifacts-dir=./extension-artifacts --overwrite-dest",
     "build:watch": "webpack --mode=development --watch --devtool=source-map",
     "semver": "VERSION=$npm_package_version; echo $VERSION; dot-json extension/manifest.json version $VERSION --indent 2",
-    "pre:deploy": "cd extension && webstore upload --source=build --auto-publish",
-    "deploy": "npm-run-all semver build pre:deploy --sequential --print-name"
+    "start:firefox": "web-ext run --source-dir ./extension/build",
+    "deploy:firefox": "from-env web-ext sign --source-dir=./extension/build --artifacts-dir=./extension-artifacts --channel=listed",
+    "deploy:chrome": "cd extension && webstore upload --source=build --auto-publish",
+    "deploy": "npm-run-all semver build --parallel deploy:* --sequential --print-name"
   },
   "dependencies": {
     "element-ready": "^3.0.0",
@@ -33,6 +35,7 @@
     "sinon": "^7.2.3",
     "stylelint": "^9.10.1",
     "stylelint-config-xo": "^0.12.0",
+    "web-ext": "^3.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.1.2",
     "xo": "^0.23.0"

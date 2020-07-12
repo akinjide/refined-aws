@@ -1,6 +1,6 @@
 {
   "name": "Refined AWS Console",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "Simplifies the Amazon Web Services Console interface.",
   "homepage_url": "https://www.github.com/akinjide/refined-aws",
   "manifest_version": 2,
