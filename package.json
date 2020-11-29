@@ -1,13 +1,13 @@
 {
   "name": "refined-aws",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "license": "MIT",
   "author": "Akinjide Bankole <r@akinjide.me>",
   "scripts": {
     "ava": "ava --verbose",
     "lint": "xo && stylelint extension/*.css && npm run build && web-ext lint --source-dir=./extension/build --output=text",
     "audit": "yarn audit",
-    "test": "npm-run-all audit lint ava",
+    "test": "npm-run-all audit lint",
     "test:watch": "ava -- --watch",
     "build": "webpack --mode=production && web-ext build --source-dir=./extension/build --artifacts-dir=./extension-artifacts --overwrite-dest",
     "build:watch": "webpack --mode=development --watch --devtool=source-map",
