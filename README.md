@@ -89,8 +89,7 @@ Simplifies the Amazon Web Services Console interface.
 | Services      | `g` + (**numeric**, **alphabet**) * 2       | Go to AWS service with numeric character (i.e. `2`)   |
 |               |                                             |                                                       |
 |&nbsp;         |                                             |                                                       |
-| Role History  | `s` + `s` + `r`                             | Switch Root                                           |
-|               | `s` + `r` + `r`                             | Switch to Root role                                   |
+| Role History  | `s` + `r` + `r`                             | Switch to Root role                                   |
 |               | `s` + `r` + **numeric**                     | Switch with numeric character (i.e. `2`) to role      |
 |&nbsp;         |                                             |                                                       |
 | Region        | `u` + `e` + `1`                             | Switch to us-east-1                                   |
