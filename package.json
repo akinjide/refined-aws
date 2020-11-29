@@ -4,9 +4,11 @@
   "license": "MIT",
   "author": "Akinjide Bankole <r@akinjide.me>",
   "scripts": {
+    "ava": "ava --verbose",
     "lint": "xo && stylelint extension/*.css && npm run build && web-ext lint --source-dir=./extension/build --output=text",
-    "test": "npm run lint",
-    "test:watch": "ava --verbose --watch",
+    "audit": "yarn audit",
+    "test": "npm-run-all audit lint ava",
+    "test:watch": "ava -- --watch",
     "build": "webpack --mode=production && web-ext build --source-dir=./extension/build --artifacts-dir=./extension-artifacts --overwrite-dest",
     "build:watch": "webpack --mode=development --watch --devtool=source-map",
     "semver": "VERSION=$npm_package_version; echo $VERSION; dot-json extension/manifest.json version $VERSION --indent 2",
@@ -18,14 +20,14 @@
   "dependencies": {
     "element-ready": "^3.0.0",
     "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
     "webextension-polyfill": "^0.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/polyfill": "^7.2.5",
     "@babel/register": "^7.0.0",
-    "ava": "^1.4.1",
-    "babel-eslint": "^10.0.1",
+    "ava": "^3.13.0",
     "babel-loader": "^8.0.4",
     "chrome-webstore-upload-cli": "^1.2.0",
     "copy-webpack-plugin": "^5.1.1",
@@ -33,12 +35,13 @@
     "faker": "^4.1.0",
     "npm-run-all": "^4.1.5",
     "sinon": "^7.2.3",
-    "stylelint": "^9.10.1",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0",
     "stylelint-config-xo": "^0.12.0",
-    "web-ext": "^4.3.0",
+    "web-ext": "^5.3.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.1.2",
-    "xo": "^0.23.0"
+    "xo": "^0.34.2"
   },
   "xo": {
     "space": true,
@@ -47,7 +50,6 @@
       "jquery",
       "es6"
     ],
-    "parser": "babel-eslint",
     "globals": [
       "browser"
     ],
@@ -56,7 +58,18 @@
     ],
     "rules": {
       "comma-dangle": "off",
-      "max-params": "off"
+      "max-params": "off",
+      "import/no-anonymous-default-export": "off",
+      "object-curly-spacing": "off",
+      "import/no-extraneous-dependencies": "off",
+      "capitalized-comments": "off",
+      "unicorn/prevent-abbreviations": "off",
+      "unicorn/no-reduce": "off",
+      "unicorn/prefer-query-selector": "off",
+      "unicorn/prefer-string-slice": "off",
+      "no-promise-executor-return": "off",
+      "unicorn/prefer-includes": "off",
+      "unicorn/no-object-as-default-parameter": "off"
     }
   },
   "ava": {
@@ -80,8 +93,8 @@
     }
   },
   "engines": {
-    "node": "10.15",
-    "npm": "6.4.1",
-    "yarn": "1.22.4"
+    "node": "12.19",
+    "npm": "6.14.8",
+    "yarn": "1.22.10"
   }
 }

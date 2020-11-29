@@ -1,9 +1,10 @@
 import {groupFeatures} from './features';
-import {StoreSync} from './library/store-sync';
-import {optionsSync} from './library/options-sync';
+import {StoreSync} from './lib/core';
+import {optionsSync} from './lib/options-sync';
+import config from './config';
 
-const storeSync = new StoreSync(window, 'refined:aws');
-const el = $('#features-all');
+const storeSync = new StoreSync(window, config.namespace.sync);
+const el = $('#features');
 const lockedFeature = [];
 
 for (const [category, features] of groupFeatures('category')) {

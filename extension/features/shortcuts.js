@@ -1,9 +1,19 @@
+import keyboard from '../lib/keyboard';
+import general from './shortcuts-general';
+import roles from './shortcuts-roles';
+import regions from './shortcuts-regions';
+import services from './shortcuts-services';
 import config from '../config';
-import shortcutsContext from '../library/shortcuts';
-import {default as actions} from './actions';
 
-export default log => {
-  const keyBoardShortcuts = actions(window, config, shortcutsContext, log);
+const allShortcuts = async (ctx, keyboard, log) => [
+  general(ctx, keyboard, log),
+  roles(ctx, keyboard, log),
+  await regions(ctx, keyboard, log),
+  ...(await services(ctx, keyboard, log)),
+];
+
+export default async log => {
+  const groupShortcuts = await allShortcuts(window, keyboard, log);
   const element = $(`
     <div id="refined-aws-keyboard">
       <div class="refined-aws-container">
@@ -25,10 +35,10 @@ export default log => {
   $(element).hide('slow');
   $('.overlay').click(() => $(element).hide('slow'));
 
-  log('🛂', 'Registry', shortcutsContext.registry);
-  shortcutsContext.exec(element, shortcutsContext);
+  log(config.logging.registry, 'Registry', keyboard.registry);
+  keyboard.exec(element, keyboard);
 
-  for (const {name = 'Generic', shortcuts = []} of keyBoardShortcuts) {
+  for (const {name = 'Generic', shortcuts = []} of groupShortcuts) {
     if (shortcuts.length > 0) {
       const shortcutsContainer = $('<div class="shortcuts-container"></div>');
       const shortcutsElement = $(

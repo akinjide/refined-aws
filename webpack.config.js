@@ -5,7 +5,7 @@ module.exports = {
   entry: {
     main: './extension/main',
     content: './extension/content',
-    options: './extension/options'
+    options: './extension/options',
   },
   output: {
     path: path.join(__dirname, 'extension/build'),
@@ -19,6 +19,9 @@ module.exports = {
         loader: 'babel-loader'
       }
     ]
+  },
+  optimization: {
+    minimize: true
   },
   plugins: [
     new CopyWebpackPlugin([

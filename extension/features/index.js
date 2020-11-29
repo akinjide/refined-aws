@@ -1,21 +1,30 @@
-import {functions} from './functions';
+import config from '../config';
+import pB from './pin-button';
+import hS from './hide-support';
+import hR from './hide-region';
+import hAL from './hide-amazon-logo';
+import sSOB from './show-sign-out-button';
+import hF from './hide-footer';
+import kS from './shortcuts';
+import uSF from './use-system-font';
+import dH from './draggable-history';
 
 export const features = {
   /* NAVIGATION BAR */
   pinButton: {
     id: 'feature-pin-button',
     category: 'navigation',
-    label: 'Move "Pin" button and "Quick Navigation"',
-    fn: functions.pB,
+    label: 'Show "Quick Favorites Navigation"',
+    fn: pB,
     enabledByDefault: true,
-    runOnInit: true,
-    locked: true
+    runOnInit: false,
+    locked: false
   },
   hideAmazonConsoleLogo: {
     id: 'feature-hide-amazon-console-logo',
     category: 'navigation',
     label: 'Hide "AWS Smile" logo',
-    fn: functions.hAL,
+    fn: hAL,
     enabledByDefault: false,
     runOnInit: false,
     locked: false
@@ -24,7 +33,7 @@ export const features = {
     id: 'feature-hide-support',
     category: 'navigation',
     label: 'Hide "Support" selection',
-    fn: functions.hS,
+    fn: hS,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -32,15 +41,7 @@ export const features = {
     id: 'feature-hide-region',
     category: 'navigation',
     label: 'Hide "Region" selection',
-    fn: functions.hR,
-    enabledByDefault: false,
-    runOnInit: false
-  },
-  hideResourceGroups: {
-    id: 'feature-hide-resource-groups',
-    category: 'navigation',
-    label: 'Hide "Resource Groups" selection',
-    fn: functions.hRG,
+    fn: hR,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -48,41 +49,26 @@ export const features = {
     id: 'feature-show-sign-out-button',
     category: 'navigation',
     label: 'Show "Sign Out" button',
-    fn: functions.sSOB,
-    enabledByDefault: false,
-    runOnInit: false
-  },
-  showDocumentationButton: {
-    id: 'feature-show-documentation-button',
-    category: 'navigation',
-    label: 'Show "Documentation" button',
-    fn: functions.sDB,
-    enabledByDefault: false,
-    runOnInit: false
-  },
-  moveFeedbackButton: {
-    id: 'feature-move-feedback-button',
-    category: 'navigation',
-    label: 'Move "Feedback" button',
-    fn: functions.fB,
-    enabledByDefault: false,
-    runOnInit: false
-  },
-  moveLanguageSelectorButton: {
-    id: 'feature-move-language-selector-button',
-    category: 'navigation',
-    label: 'Move "Language Selector" button',
-    fn: functions.lSB,
-    enabledByDefault: false,
+    fn: sSOB,
+    enabledByDefault: true,
     runOnInit: false
   },
 
   /* GENERAL */
+  useSystemFont: {
+    id: 'feature-use-system-font',
+    category: 'general',
+    label: 'Use the "System Font"',
+    fn: uSF,
+    enabledByDefault: true,
+    runOnInit: true,
+    locked: false
+  },
   hideFooter: {
     id: 'feature-hide-footer',
     category: 'general',
-    label: 'Hide console "Footer"',
-    fn: functions.hF,
+    label: 'Hide "Footer"',
+    fn: hF,
     enabledByDefault: false,
     runOnInit: false
   },
@@ -90,50 +76,27 @@ export const features = {
     id: 'feature-keyboard-shortcuts',
     category: 'general',
     label: 'Enable "Keyboard Shortcuts"',
-    fn: functions.kS,
+    fn: kS,
     enabledByDefault: false,
     runOnInit: false
   },
-  useSystemFont: {
-    id: 'feature-use-system-font',
+  enableDraggableHistory: {
+    id: 'feature-enable-draggable-history',
     category: 'general',
-    label: 'Use the "System Font"',
-    fn: functions.uSF,
-    enabledByDefault: true,
-    runOnInit: true,
-    locked: false
+    label: 'Enable "Draggable History"',
+    fn: dH,
+    enabledByDefault: false,
+    runOnInit: false,
+    locked: true
   },
-
-  /* SUPPORT */
-  expandSupportCenterCases: {
-    id: 'feature-expand-support-center-cases',
-    category: 'support',
-    label: 'Expand "Recent Support Cases" layout',
-    fn: functions.sCC,
-    enabledByDefault: true,
-    runOnInit: true,
-    locked: false
-  },
-
-  /* SYSTEMS MANAGER */
-  // duplicateBreadCrumbNavigation: {
-  //   id: 'feature-duplicate-breadcrumb-navigation',
-  //   category: 'systems manager',
-  //   label: 'Show "Breadcrumb Navigation" on table bottom within Shared Resources section',
-  //   fn: functions.dBN,
-  //   enabledByDefault: false,
-  //   runOnInit: false,
-  //   locked: true
-  // },
 
   /* ADVANCED */
   showExtensionLogs: {
     id: 'logging',
     category: 'debugging',
     label: 'Show "Extension Logs" in console',
-    enabledByDefault: false,
-    runOnInit: false
-  }
+    enabledByDefault: config.devMode,
+  },
 };
 
 export const values = Object.values(features);

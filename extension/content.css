@@ -1,37 +1,28 @@
 /* Overrides */
 
-
 /** Global */
 
 /* Move "Pin" button and quick navigation */
-#consoleNavHeader > #awsgnav > #shortcutMenuContent {
-	z-index: 2 !important;
-	top: 80px !important;
-}
-
-#awsgnav .nav-menu-content {
-  z-index: 9999 !important;
-}
-
-#awsgnav > #shortcutMenuContent > #nav-shortcuts-section {
-  height: 600px;
-  overflow-y: scroll;
-}
-
-#consoleNavHeader > #awsgnav > #nav-menubar #nav-shortcutBar {
-  width: 100% !important;
-  background: #24292E;
-  overflow-x: auto !important;
-  margin: 0 0 4px !important;
-}
-
-#consoleNavHeader > #awsgnav > #nav-menubar #nav-shortcutBar::-webkit-scrollbar {
-  display: none;
-}
-
+/* stylelint-disable */
 #b > #h {
   height: auto !important;
 }
+
+#awsc-navigation-container { height: auto; }
+
+.ra-pb {
+  background-color: #000;
+  padding-left: 10px;
+}
+
+.ra-pb > ol {
+  display: flex;
+  overflow-x: auto !important;
+  padding-top: 8px !important;
+}
+
+.ra-pb > ol::-webkit-scrollbar { display: none; }
+.ra-pb > ol li { flex: 0 0 auto; }
 
 /** Navigation Service Catalog */
 body.sc-aws-header > #h {
@@ -44,29 +35,14 @@ body.sc-aws-header .sc-main-content {
 }
 
 /** Show "Sign Out" button */
-/** Show "Documentation" button */
-/** Show "Feedback" button */
-/** Show "Language Selector" button */
-#nav-menu-right .nav-elt.nav-menu {
-  position: relative !important;
-  left: 0 !important;
-  outline: none;
-}
+div.ra-ssob { padding: 8px; }
 
-#consoleNavHeader > #awsgnav > #nav-menubar #nav-menu-right #aws-console-logout.ra-ssob,
-#consoleNavHeader > #awsgnav > #nav-menubar #nav-menu-right #aws-documentation.ra-sdb,
-#consoleNavHeader > #awsgnav > #nav-menubar #nav-menu-right #feedback.ra-fb,
-#consoleNavHeader > #awsgnav > #nav-menubar #nav-menu-right #awsc-language-selector.ra-lsb {
-  padding: 13px 12px 9px;
-  color: #EEEEEE;
-  font-size: 13px !important;
+#aws-console-logout {
+  font-size: 12px;
+  color: #d5dbdb !important;
+  text-decoration: none;
+  line-height: 1.7em;
 }
-
-#consoleNavHeader > #awsgnav > #nav-menubar #nav-menu-right #feedback.ra-fb > .awsc-footer-icon,
-#consoleNavHeader > #awsgnav > #nav-menubar #nav-menu-right #awsc-language-selector.ra-lsb > .awsc-footer-icon {
-  top: auto !important;
-}
-
 
 /* Use system fonts */
 body.ra-usf {
@@ -78,24 +54,19 @@ body.ra-usf {
   padding-left: 48px;
 }
 
-/** Show "Language Selector" button */
-#awsgnav > #awsc-language-selector-content.ra-lsb {
-  left: unset !important;
-  bottom: unset !important;
-  top: 40px;
-  right: 131.781px;
-  z-index: 9 !important;
-  border-radius: 4px;
-  border-style: solid;
+/* Show "Draggable History" */
+#h > #ra-draggable.ra-dh {
+  width: 180px;
+  height: auto;
+  position: fixed;
+  z-index: 999;
+  right: 80px;
+  top: 20vh;
+  background: #000;
+  padding: 20px;
 }
 
-#cc.ra-hF {
-  padding-bottom: 0 !important;
-}
-
-/*body.awsui-mezzanine-overrides #awsc-language-selector-content {
-  z-index: 99999;
-}*/
+#h > #ra-draggable.ra-dh ol li a { color: #fff !important; }
 
 /** Keyboard shortcuts */
 
@@ -117,7 +88,7 @@ body.ra-usf {
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
-  background: #FFF;
+  background: #fff;
   z-index: 9999999;
   border-radius: 8px;
   overflow-y: scroll;
@@ -144,10 +115,10 @@ body.ra-usf {
 }
 
 #refined-aws-keyboard h2 {
-  border-bottom: 1px solid rgba(0, 0, 0, .10);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   height: 50px;
   line-height: 50px;
-  color: #1D2129;
+  color: #1d2129;
   font-size: 13px;
   font-weight: 700;
   margin: 0;
@@ -169,7 +140,7 @@ body.ra-usf {
 
 #refined-aws-keyboard .shortcuts {
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, .10);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   font-size: 15px;
   margin: 0 24px;
@@ -185,7 +156,7 @@ body.ra-usf {
 }
 
 #refined-aws-keyboard .shortcuts .shortcuts-header {
-  color: rgba(0, 0, 0, .40);
+  color: rgba(0, 0, 0, 0.4);
   display: inline-block;
   line-height: 1.28;
   vertical-align: middle;

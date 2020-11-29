@@ -1,8 +1,9 @@
 import {runOnInitFeatures, features} from './features';
-import {StoreSync} from './library/store-sync';
-import {ready, observeElement, safeElementReady} from './library/dom';
+import {StoreSync} from './lib/core';
+import {ready, observeElement, safeElementReady} from './lib/dom';
+import config from './config';
 
-const storeSync = new StoreSync(window, 'refined:aws');
+const storeSync = new StoreSync(window, config.namespace.sync);
 let options;
 
 async function enableFeature({fn = (() => {}), id}) {
@@ -20,13 +21,13 @@ async function enableFeature({fn = (() => {}), id}) {
     }
 
     if (options[id] === false) {
-      return log('💤', 'Skipping', id);
+      return log(config.logging.skipping, 'Skipping', id);
     }
 
     await fn(log);
-    log('✅', id);
+    log(config.logging.ok, id);
   } catch (error) {
-    log('❌', id);
+    log(config.logging.error, id);
     log(error);
   }
 }
@@ -39,16 +40,13 @@ function observeAndEnableFeatures() {
   enableFeature(features.keyboardShortcuts);
 
   onRouteChange(() => {
+    enableFeature(features.pinButton);
     enableFeature(features.hideAmazonConsoleLogo);
     enableFeature(features.hideSupport);
     enableFeature(features.hideRegion);
     enableFeature(features.hideFooter);
-    enableFeature(features.hideResourceGroups);
-    enableFeature(features.moveFeedbackButton);
-    enableFeature(features.moveLanguageSelectorButton);
-    enableFeature(features.showDocumentationButton);
     enableFeature(features.showSignOutButton);
-    // Fix: enableFeature(features.duplicateBreadCrumbNavigation);
+    enableFeature(features.enableDraggableHistory);
   });
 }
 

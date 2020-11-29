@@ -16,3 +16,4 @@ deploy:
 
 env:
   EXTENSION_ID=ockddcaogdonfmcfhdblbflchnjgiilc
+  WEB_EXT_ID={d6ce8cb9-5674-4303-9f7d-232923293a24}

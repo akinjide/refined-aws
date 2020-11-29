@@ -1,3 +1,5 @@
+import config from '../config';
+
 export const optionsSync = (el, storeSync) => {
   if (typeof el === 'string') {
     el = $(el);
@@ -21,14 +23,15 @@ export const optionsSync = (el, storeSync) => {
         break;
     }
 
-    console.group('🔄', 'Synchronising options');
+    console.group(config.logging.sync, 'Synchronising options');
     try {
       await storeSync.set({[name]: value});
-      console.info('✅', `Saved option ${name} to ${value}`);
+      console.info(config.logging.ok, `Saved option ${name} to ${value}`);
     } catch (error) {
       console.log(error);
-      console.info('❌', `Error saving option ${name} to ${value}`);
+      console.info(config.logging.error, `Error saving option ${name} to ${value}`);
     }
+
     console.groupEnd();
   });
 
@@ -39,8 +42,8 @@ export const optionsSync = (el, storeSync) => {
         if (changes[key]) {
           const {newValue, oldValue} = changes[key];
 
-          console.log('🐞', changes);
-          console.log('Storage key "%s" in namespace "%s" changed. ', 'Old value was "%s", new value is "%s".', key, namespace, oldValue, newValue);
+          console.log(config.logging.bug, changes);
+          console.log('Storage key "%s" in namespace "%s" changed.', 'Old value was "%s", new value is "%s".', key, namespace, oldValue, newValue);
 
           // Return apply(el, { [key]: newValue })
         }
@@ -70,7 +73,7 @@ export const optionsSync = (el, storeSync) => {
               break;
           }
         } else {
-          console.warn('⚠️', 'Stored option {', name, ':', options[name], '} was not found on the page');
+          console.warn(config.logging.warning, 'Stored option {', name, ':', options[name], '} was not found on the page');
         }
       }
     }

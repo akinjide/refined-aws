@@ -1,8 +1,10 @@
+import config from '../config';
+
 export default {
   registry: {},
   inject(shortcutCombination, callback, options) {
     if (shortcutCombination in this.registry) {
-      throw new Error(`❓ ${shortcutCombination} exist`);
+      throw new Error(`${config.logging.error} ${shortcutCombination} exist`);
     }
 
     // Provide a set of default options

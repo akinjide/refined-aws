@@ -1,12 +1,9 @@
-import nS from './common/nav-separator';
-
 export default () => {
-  const el = $('#aws-console-logout');
-  const parent = $(el).parent();
+  const el = $('header#awsc-nav-header div[data-testid="awsc-nav-more-menu-list"] ul#awsc-navigation__more-menu--list');
+  const signout = $(el).find('div[data-testid="awsc-nav-account-menu-content"] a#aws-console-logout');
+  const parent = $(signout).parent();
 
-  $(el).addClass('nav-elt ra-ssob');
-
-  $(el).appendTo($('#nav-menu-right'));
-  $(nS()).insertBefore(el);
-  $(parent).hide();
+  $(signout).parent().parent().hide();
+  $(parent).addClass('ra-ssob');
+  $(parent).appendTo($(el));
 };
