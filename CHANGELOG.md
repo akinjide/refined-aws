@@ -1,3 +1,6 @@
+# 2.6.1
+* Publish FireFox addon on site
+
 # 2.6.0
 * Remove babel-eslint@10.1.0
 * Add chrome.alarms to clear cache periodically
