@@ -1,6 +1,6 @@
 {
   "name": "refined-aws",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "license": "MIT",
   "author": "Akinjide Bankole <r@akinjide.me>",
   "scripts": {
@@ -15,7 +15,7 @@
     "start:firefox": "web-ext run --source-dir ./extension/build",
     "deploy:firefox": "web-ext sign --source-dir=./extension/build --artifacts-dir=./extension-artifacts --channel=listed",
     "deploy:chrome": "cd extension && webstore upload --source=build --auto-publish",
-    "deploy": "npm-run-all semver build --parallel deploy:* --sequential --print-name"
+    "deploy": "npm-run-all semver build --parallel deploy:* --print-label --print-name --continue-on-error"
   },
   "dependencies": {
     "element-ready": "^3.0.0",
