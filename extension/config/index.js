@@ -27,10 +27,11 @@ export default ({
     // Asia
     'ap-east-1': ['a', 'p', '1'],
     'ap-south-1': ['a', 's', '1'],
-    'ap-northeast-2': ['a', 'n', '2'],
     'ap-southeast-1': ['a', 'e', '1'],
     'ap-southeast-2': ['a', 's', '2'],
     'ap-northeast-1': ['a', 'n', '1'],
+    'ap-northeast-2': ['a', 'n', '2'],
+    'ap-northeast-3': ['a', 'n', '3'],
 
     // Canada
     'ca-central-1': ['c', 'c', '1'],
