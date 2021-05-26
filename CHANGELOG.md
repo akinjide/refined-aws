@@ -1,4 +1,5 @@
 # new version
+* Upgrade stylelint-config-xo@0.20.0, stylelint@13.13.1, dot-json@1.2.2
 * Include Region Asia Pacific (Osaka) keyboard shortcut
 * Upgrade ava@3.15.0, web-ext@5.5.0, webpack-cli@3.3.12, copy-webpack-plugin@5.1.2, xo@0.34.2, webpack@4.46.0
 
