@@ -1,3 +1,9 @@
+# new version
+* Upgrade node@14.17
+* Upgrade stylelint-config-xo@0.20.0, stylelint@13.13.1, dot-json@1.2.2, web-ext@6.2.0, copy-webpack-plugin@9.0.1, chrome-webstore-upload-cli@1.2.1, webpack@5.51.1, webpack-cli@4.8.0, xo@0.43.0
+* Include Region Asia Pacific (Osaka) keyboard shortcut
+* Upgrade ava@3.15.0, web-ext@5.5.0, webpack-cli@3.3.12, copy-webpack-plugin@5.1.2, xo@0.34.2, webpack@4.46.0
+
 # 2.6.1
 * Publish FireFox addon on site
 

@@ -24,30 +24,13 @@ module.exports = {
     minimize: true
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: '*',
-        context: 'extension',
-        ignore: [
-          '*.js'
-        ]
-      },
-      {
-        from: 'style/*',
-        context: 'extension'
-      },
-      {
-        from: 'images/*',
-        context: 'extension'
-      },
-      {
-        from: 'webextension-polyfill/dist/browser-polyfill.min.js',
-        context: 'node_modules'
-      },
-      {
-        from: 'jquery/dist/jquery.slim.min.js',
-        context: 'node_modules'
-      }
-    ])
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: '*', context: 'extension', globOptions: { ignore: ['*.js'] } },
+        { from: 'images/*', context: 'extension' },
+        { from: 'webextension-polyfill/dist/browser-polyfill.min.js', context: 'node_modules' },
+        { from: 'jquery/dist/jquery.slim.min.js', context: 'node_modules' }
+      ]
+    })
   ]
 };

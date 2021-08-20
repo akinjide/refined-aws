@@ -7,10 +7,12 @@
     "ava": "ava --verbose",
     "lint": "xo && stylelint extension/*.css && npm run build && web-ext lint --source-dir=./extension/build --output=text",
     "audit": "yarn audit",
-    "test": "npm-run-all audit lint",
+    "test": "npm run lint",
     "test:watch": "ava -- --watch",
-    "build": "webpack --mode=production && web-ext build --source-dir=./extension/build --artifacts-dir=./extension-artifacts --overwrite-dest",
-    "build:watch": "webpack --mode=development --watch --devtool=source-map",
+    "build:firefox": "web-ext build --source-dir=./extension/build --artifacts-dir=./extension-artifacts --overwrite-dest",
+    "build:chrome": "webpack --mode=production",
+    "build": "npm-run-all build:chrome build:firefox",
+    "build:watch": "webpack --mode=development --watch --progress --devtool=source-map",
     "semver": "VERSION=$npm_package_version; echo $VERSION; dot-json extension/manifest.json version $VERSION --indent 2",
     "start:firefox": "web-ext run --source-dir ./extension/build",
     "deploy:firefox": "web-ext sign --source-dir=./extension/build --artifacts-dir=./extension-artifacts --channel=listed",
@@ -29,19 +31,19 @@
     "@babel/register": "^7.0.0",
     "ava": "^3.13.0",
     "babel-loader": "^8.0.4",
-    "chrome-webstore-upload-cli": "^1.2.0",
-    "copy-webpack-plugin": "^5.1.1",
-    "dot-json": "^1.0.4",
+    "chrome-webstore-upload-cli": "^1.2.1",
+    "copy-webpack-plugin": "^9.0.1",
+    "dot-json": "^1.2.2",
     "faker": "^4.1.0",
     "npm-run-all": "^4.1.5",
     "sinon": "^7.2.3",
-    "stylelint": "^13.8.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-config-xo": "^0.12.0",
-    "web-ext": "^5.3.0",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.1.2",
-    "xo": "^0.34.2"
+    "stylelint-config-xo": "^0.20.0",
+    "web-ext": "^6.2.0",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "xo": "^0.43.0"
   },
   "xo": {
     "space": true,
@@ -69,12 +71,20 @@
       "unicorn/prefer-string-slice": "off",
       "no-promise-executor-return": "off",
       "unicorn/prefer-includes": "off",
-      "unicorn/no-object-as-default-parameter": "off"
+      "unicorn/no-object-as-default-parameter": "off",
+      "import/extensions": "off",
+      "node/file-extension-in-import": "off",
+      "unicorn/prefer-module": "off",
+      "promise/prefer-await-to-then": "off",
+      "unicorn/numeric-separators-style": "off",
+      "arrow-body-style": "off",
+      "unicorn/no-lonely-if": "off",
+      "unicorn/no-array-reduce": "off"
     }
   },
   "ava": {
     "files": [
-      "test/**/*.test.js"
+      "extension/**/*.test.js"
     ],
     "failFast": true,
     "require": [
@@ -93,8 +103,8 @@
     }
   },
   "engines": {
-    "node": "12.19",
-    "npm": "6.14.8",
+    "node": "14.17",
+    "npm": "6.14.13",
     "yarn": "1.22.10"
   }
 }

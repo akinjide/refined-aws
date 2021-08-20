@@ -6,8 +6,8 @@ Simplifies the Amazon Web Services Console interface.
 
 ## Install
 
-- **Chrome** extension
-- **Firefox** extension
+- [**Chrome** extension](https://chrome.google.com/webstore/detail/refined-aws-console/ockddcaogdonfmcfhdblbflchnjgiilc)
+- [**Firefox** extension](https://addons.mozilla.org/en-US/firefox/addon/refined-aws-console/)
 
 
 ## Highlights
