@@ -7,9 +7,11 @@
     "ava": "ava --verbose",
     "lint": "xo && stylelint extension/*.css && npm run build && web-ext lint --source-dir=./extension/build --output=text",
     "audit": "yarn audit",
-    "test": "npm-run-all audit lint",
+    "test": "npm run lint",
     "test:watch": "ava -- --watch",
-    "build": "webpack --mode=production && web-ext build --source-dir=./extension/build --artifacts-dir=./extension-artifacts --overwrite-dest",
+    "build:firefox": "web-ext build --source-dir=./extension/build --artifacts-dir=./extension-artifacts --overwrite-dest",
+    "build:chrome": "webpack --mode=production",
+    "build": "npm-run-all build:chrome build:firefox",
     "build:watch": "webpack --mode=development --watch --progress --devtool=source-map",
     "semver": "VERSION=$npm_package_version; echo $VERSION; dot-json extension/manifest.json version $VERSION --indent 2",
     "start:firefox": "web-ext run --source-dir ./extension/build",
@@ -69,7 +71,15 @@
       "unicorn/prefer-string-slice": "off",
       "no-promise-executor-return": "off",
       "unicorn/prefer-includes": "off",
-      "unicorn/no-object-as-default-parameter": "off"
+      "unicorn/no-object-as-default-parameter": "off",
+      "import/extensions": "off",
+      "node/file-extension-in-import": "off",
+      "unicorn/prefer-module": "off",
+      "promise/prefer-await-to-then": "off",
+      "unicorn/numeric-separators-style": "off",
+      "arrow-body-style": "off",
+      "unicorn/no-lonely-if": "off",
+      "unicorn/no-array-reduce": "off"
     }
   },
   "ava": {

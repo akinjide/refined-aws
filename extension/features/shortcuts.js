@@ -1,9 +1,9 @@
 import keyboard from '../lib/keyboard';
+import config from '../config';
 import general from './shortcuts-general';
 import roles from './shortcuts-roles';
 import regions from './shortcuts-regions';
 import services from './shortcuts-services';
-import config from '../config';
 
 const allShortcuts = async (ctx, keyboard, log) => [
   general(ctx, keyboard, log),
