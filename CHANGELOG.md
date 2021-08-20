@@ -1,4 +1,4 @@
-# new version
+# 2.6.2
 * Upgrade node@14.17
 * Upgrade stylelint-config-xo@0.20.0, stylelint@13.13.1, dot-json@1.2.2, web-ext@6.2.0, copy-webpack-plugin@9.0.1, chrome-webstore-upload-cli@1.2.1, webpack@5.51.1, webpack-cli@4.8.0, xo@0.43.0
 * Include Region Asia Pacific (Osaka) keyboard shortcut
